@@ -15,7 +15,19 @@ The user approved the Money Garden direction on 2026-11-06: "It should be for br
 
 Move a glowing income token into a miniature garden and watch the money physically divide into essentials, a savings reservoir, and discretionary spending. Run a simulated month: a surprise expense drains the reservoir, while the money reserved for a goal grows a plant. Then inspect the same money passing through tax layers and a purchase-decision gate. All three lessons use the same compact tabletop world (default).
 
-Audience: a broad audience, as requested by the user. Assume no prior financial or programming knowledge; use plain language, concrete quantities, optional explanations, and forgiving retries. Main takeaway: account for obligations and uncertainty before committing money; use explicit rules to reason about tradeoffs (default).
+Audience: a broad audience, as requested by the user. Assume no prior financial or programming knowledge; use plain language, concrete quantities, required teaching before practice, and forgiving retries. Main takeaway: account for obligations and uncertainty before committing money; use explicit rules to reason about tradeoffs (default).
+
+## Tutor-first revision — November 6
+
+The user clarified: "Make sure it's not just a game with questions, but a tutor that teaches you first." This requirement supersedes the original prediction-first tax/logic sequence and optional-only explanations below. Each topic must explain its terms, demonstrate a worked example in the spatial model, guide practice, and only then ask for an independent prediction. Questions check understanding after teaching; they do not introduce an unexplained concept.
+
+- Budget: define spendable income, essentials, reserve, and choice. Build a worked 1,000-credit allocation in view: 500 essentials, 300 reserve, 200 choice. Apply the 200-credit surprise and show the remaining 100 reserve before the learner allocates their own money.
+- Taxes: define taxable income, tax, and retained income. Build the fictional layers from zero through 1,000, 2,000, and 2,500 credits. Explain 200 tax and 2,300 retained, then show that another 500 adds 100 tax and 400 retained. The earlier layers must stay unchanged.
+- Logic: define a condition as a true/false statement, AND as both conditions, and OR as either or both. With A true and B false, demonstrate the closed AND gate and open OR gate before asking the learner to predict or select a policy.
+- Teaching uses user-paced Next and Back controls. No timed reading or answer choices before the explanation and demonstration. A Teach again route revisits the lesson and returns to the exact learner state; demonstration values must never spend the learner's credits or overwrite their answers.
+- Practice supplies a concrete next step and explains the cause of a shortfall or incorrect prediction. Retry and explanation remain available without scores, penalties, or shaming.
+
+Acceptance for this revision: actual SIK interactions must prove teaching precedes each assessment, examples update the visible world, Back reverses the example, and Teach again preserves progress. Earlier passing tests do not establish this revision's correctness; see the updated verification report when complete.
 
 ## Why it belongs on glasses
 
@@ -37,7 +49,7 @@ Audience: a broad audience, as requested by the user. Assume no prior financial 
 - Garden board: approximately 48 cm wide by 28 cm deep, centered about 110 cm in front of the starting view and 25 cm below eye height (default). Final placement must be calculated from the existing camera pose and verified in Preview.
 - Three learning stations occupy the same central board sequentially. Inactive station detail hides, avoiding a wide panorama of simultaneous controls.
 - Active controls: two or three large targets at a time, at least 5 cm across with separation (default). Labels remain immediately beside their associated objects.
-- Lesson prompt: one short instruction beside the active station; longer explanation opens only on request.
+- Lesson prompt: one short teaching step beside the active station. The worked example is part of the default flow; extra detail remains available on request.
 - Small progress markers show Budget / Taxes / Logic. Summary replaces the active scene at the end.
 - Recenter action brings the board back in front of the current view, then leaves it world-fixed again. Restart and mute remain reachable.
 - All labels use readable light colors. Meaning uses text, shape, and motion as well as color.
@@ -71,7 +83,7 @@ These are fictional learning exercises, not personalized financial advice or a t
 
 Start with 1,000 credits of spendable money after tax (default), represented by ten 100-credit tokens. Meet 500 credits of essentials, reserve at least 200 credits for the scenario's possible surprise, and decide how to use the remaining 300. The savings target belongs to this scenario; it is not a universal savings rule.
 
-When Run month is selected, apply a disclosed 200-credit surprise expense. Show savings before and after, unmet essentials, and any uncovered surprise amount. Do not invent debt, interest, or automatic borrowing. Explain shortfalls without shaming the learner. Allow undo before Run, and a complete retry afterward.
+After Check my plan and the learner's prediction, apply a disclosed 200-credit surprise expense. Show savings before and after, unmet essentials, and any uncovered surprise amount. Do not invent debt, interest, or automatic borrowing. Explain shortfalls without shaming the learner. Allow undo before the check, and a complete retry afterward.
 
 Enforce conservation: allocated credits + unallocated credits = income. Never allow negative balances or duplicate token allocation. Do not mark a month successful until the stated essential and reserve constraints are satisfied.
 
@@ -81,13 +93,13 @@ Use a separate fictional annual taxable-income example, visibly distinct from th
 
 At income 2,500: tax = 0 + 100 + 100 = 200; retained income = 2,300. At income 3,000: tax = 300; retained income = 2,700. The additional 500 therefore adds 400 to retained income in this simplified example. Animate only the new layer receiving the higher rate; never recolor all income as if it were taxed at that rate.
 
-Ask the learner to predict whether retained income rises before revealing the comparison. Explain marginal versus average rate with the actual quantities: at 2,500, the top rate is 20%, while 200 / 2,500 = 8% is the average rate in this exercise. Do not generalize this simplified example to benefits eligibility, all taxes, deductions, credits, or real take-home pay.
+Teach and demonstrate the comparison before asking the learner to predict in practice. Explain marginal versus average rate with the actual quantities: at 2,500, the top rate is 20%, while 200 / 2,500 = 8% is the average rate in this exercise. Do not generalize this simplified example to benefits eligibility, all taxes, deductions, credits, or real take-home pay.
 
 ### 3. Logic: can this purchase pass both checks?
 
 Condition A: essentials are covered. Condition B: enough remains for the scenario's reserve after the proposed purchase. The objective explicitly requires BOTH conditions, so AND implements the policy. OR deliberately opens the path when only one condition is true; let the learner observe why that conflicts with this particular objective. OR is not intrinsically a bad operator.
 
-Allow all four input combinations. AND results: false, false, false, true for (false,false), (false,true), (true,false), (true,true). OR results: false, true, true, true. False paths use a closed gate and text; true paths use a moving pulse and an open gate. Ask for a prediction, reveal the result, and explain any mismatch.
+Allow all four input combinations. AND results: false, false, false, true for (false,false), (false,true), (true,false), (true,true). OR results: false, true, true, true. False paths use a closed gate and text; true paths use a moving pulse and an open gate. Explain and demonstrate both operators first; then ask for a prediction, reveal the result, and explain any mismatch.
 
 ### Repeat value
 
@@ -98,7 +110,7 @@ Provide at least three deterministic, solvable budget scenarios (default): incom
 Each one can be checked in Lens Studio's preview.
 
 1. From a clean start, a user can begin, complete the practice interaction, and see a stable, readable garden in front of them. Recenter returns the garden to view without resetting learning progress.
-2. Allocating the budget updates the correct destinations, conserves all credits, and never permits double spending. Run month displays the 200-credit surprise correctly in the first scenario; shortfalls explain what happened and Retry restores the initial state.
+2. Allocating the budget updates the correct destinations, conserves all credits, and never permits double spending. Checking the plan and predicting displays the 200-credit surprise correctly in the first scenario; shortfalls explain what happened and Retry restores the initial state.
 3. Adding 500 to taxable income 2,500 shows tax increasing from 200 to 300 and retained income increasing from 2,300 to 2,700. Only the incremental layer uses 20%; practice-rate labeling stays visible.
 4. Both AND and OR give correct results for all four input combinations. A learner can choose AND to enforce the two-condition purchasing objective and receive specific explanatory feedback.
 5. The complete sequence reaches a summary with three takeaways. Replay resets all relevant state, New scenario changes the numbers to another solvable scenario, and essential actions work with Preview's mouse-driven hand input. No compile or new runtime errors occur.
@@ -139,7 +151,7 @@ Each one can be checked in Lens Studio's preview.
 
 The garden initializes approximately 115 cm ahead and 8 cm below the current camera, then stays in world space. The virtual tabletop tilts 25 degrees so its teaching objects are visible from the starting view. Recenter places it relative to the current view without resetting lesson state.
 
-Each tax column is split into retained income and tax, replacing the proposed separate collector. This keeps each layer's total visible without displaying the same tax twice. Column geometry updates immediately; the budget's transfer arc, plant growth, and logic pulses animate.
+Each tax column is split into retained income and tax, replacing the proposed separate collector. This keeps each layer's total visible without displaying the same tax twice. The tutor revision animates changed tax-layer heights, grouped coin transfers, reserve depletion, plant growth, and logic pulses.
 
 Interaction testing revealed that controls must retain their identities while release and hover events finish. Buttons now persist across lesson changes, with inactive controls disabled. Audio is supplemental and cannot interrupt the learning flow if playback becomes unavailable.
 

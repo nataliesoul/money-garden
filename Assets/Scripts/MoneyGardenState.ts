@@ -1,4 +1,4 @@
-export type Stage = 'welcome'|'practice'|'budget'|'month'|'taxPredict'|'tax'|'logic'|'logicResult'|'summary';
+export type Stage = 'welcome'|'practice'|'budget'|'month'|'taxPredict'|'tax'|'logic'|'logicResult'|'summary'|'budgetPredict'|'taxGuided'|'logicGuided';
 export interface Scenario { name:string; income:number; essentials:number; surprise:number; }
 export const SCENARIOS:Scenario[] = [
  {name:'First harvest',income:1000,essentials:500,surprise:200},
@@ -9,6 +9,7 @@ export function tax(income:number):number { return Math.round(Math.min(Math.max(
 export class MoneyGardenState {
  stage:Stage='welcome'; scenarioIndex=0; allocated=[0,0,0]; history:number[]=[];
  income=2500; previousIncome=2500; a=true;b=false; useAnd=false; prediction:boolean|null=null;
+ budgetPrediction:boolean|null=null;budgetPredictionCorrect=false;taxGuidedDone=false;logicGuidedDone=false;
  taxPredictionCorrect=false; logicPredictionCorrect=false; monthSuccess=false;
  get scenario():Scenario {return SCENARIOS[this.scenarioIndex];}
  get remaining():number{return this.scenario.income-this.allocated.reduce((s,n)=>s+n,0);}
@@ -20,6 +21,6 @@ export class MoneyGardenState {
  get savingsAfter():number{return Math.max(0,this.allocated[1]-this.scenario.surprise);}
  get uncovered():number{return Math.max(0,this.scenario.surprise-this.allocated[1]);}
  get unmet():number{return Math.max(0,this.scenario.essentials-this.allocated[0]);}
- reset(next=false):void {if(next)this.scenarioIndex=(this.scenarioIndex+1)%SCENARIOS.length;this.stage='welcome';this.resetBudget();this.income=2500;this.previousIncome=2500;this.a=true;this.b=false;this.useAnd=false;this.prediction=null;this.taxPredictionCorrect=false;this.logicPredictionCorrect=false;}
- snapshot():string {return JSON.stringify({stage:this.stage,scenario:this.scenarioIndex,allocated:this.allocated,remaining:this.remaining,income:this.income,tax:tax(this.income),retained:this.income-tax(this.income),a:this.a,b:this.b,useAnd:this.useAnd,gate:this.gate,monthSuccess:this.monthSuccess,unmet:this.unmet,uncovered:this.uncovered,savingsAfter:this.savingsAfter});}
+ reset(next=false):void {if(next)this.scenarioIndex=(this.scenarioIndex+1)%SCENARIOS.length;this.stage='welcome';this.resetBudget();this.income=2500;this.previousIncome=2500;this.a=true;this.b=false;this.useAnd=false;this.prediction=null;this.taxPredictionCorrect=false;this.logicPredictionCorrect=false;this.budgetPrediction=null;this.budgetPredictionCorrect=false;this.taxGuidedDone=false;this.logicGuidedDone=false;}
+ snapshot():string {return JSON.stringify({stage:this.stage,scenario:this.scenarioIndex,allocated:this.allocated,remaining:this.remaining,income:this.income,tax:tax(this.income),retained:this.income-tax(this.income),a:this.a,b:this.b,useAnd:this.useAnd,gate:this.gate,monthSuccess:this.monthSuccess,unmet:this.unmet,uncovered:this.uncovered,savingsAfter:this.savingsAfter,prediction:this.prediction,budgetPrediction:this.budgetPrediction,budgetPredictionCorrect:this.budgetPredictionCorrect,taxPredictionCorrect:this.taxPredictionCorrect,logicPredictionCorrect:this.logicPredictionCorrect,taxGuidedDone:this.taxGuidedDone,logicGuidedDone:this.logicGuidedDone});}
 }

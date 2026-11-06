@@ -1,10 +1,10 @@
 # Money Garden
 
-Devpost draft: https://devpost.com/software/money-garden (project 1530579, hackathon submission 1285095). The draft includes a description, thumbnail, and three verified Preview screenshots. It has not been submitted. Personal reflections and eligibility declarations remain for the participant to supply.
+Devpost draft: https://devpost.com/software/money-garden (project 1530579, hackathon submission 1285095). The gallery includes three practice views and three new tutor worked-example views; the thumbnail shows the budget tutor. It has not been submitted. Personal reflections and eligibility declarations remain for the participant to supply.
 
 ## Tagline
 
-Grow your money skills in AR: explore budgets, tax layers, and decision logic in a miniature garden.
+A spatial tutor that explains money, taxes, and logic through worked examples in a miniature AR garden, then guides your practice.
 
 ## Intended audience and problem
 
@@ -12,11 +12,13 @@ Money Garden is designed for a broad audience without assuming financial or prog
 
 ## What it does
 
-The learner moves 100-credit tokens into Essentials, Reserve, and Choice bowls in a miniature garden. The remaining balance and visible stacks show where the money went. Running the month applies a disclosed surprise expense and explains any uncovered costs. Undo and retry make experimentation forgiving.
+Money Garden teaches before it asks questions. Each topic starts with a plain-language explanation and a user-paced worked example in the spatial model. Next and Back let the learner inspect each change. Guided practice follows, then prediction and feedback. Teach again replays a separate demonstration and returns to the learner's preserved work.
 
-The tax lesson asks for a prediction, then divides annual taxable income into three columns using clearly labeled practice rates. Adding 500 credits above the top threshold adds 100 tax and 400 retained income. The first two columns stay unchanged, making the marginal-rate concept visible.
+The budget tutor defines income, essentials, reserve, and choice. It allocates 1,000 example credits into 500 essentials, 300 reserve, and 200 choice, then shows a 200-credit surprise leaving 100 reserve. Only afterward does the learner move their own 100-credit tokens, with next-step coaching, Undo, and forgiving retries.
 
-The logic lesson asks which rule implements a policy requiring two conditions. Learners toggle A and B, select AND or OR, predict the outcome, and send pulses through a visible gate. A summary closes the three-lesson sequence, and three budget scenarios provide repeat practice.
+The tax tutor defines taxable and retained income, then builds separate columns using clearly labeled practice rates. At 2,500 credits, 200 goes to tax and 2,300 remains. Adding 500 above the top threshold adds 100 tax and 400 retained income. The first two columns stay unchanged. Guided practice and a prediction follow the explanation.
+
+The logic tutor defines true/false conditions and demonstrates AND and OR with the same inputs. A true and B false closes the AND gate but opens OR. Learners then practice, predict, and send pulses through the gate. The example purchasing policy requires both conditions, so AND implements it. A summary closes the three-lesson sequence, and three budget scenarios provide repeat practice.
 
 ## Why AR
 
@@ -30,7 +32,7 @@ Planning used the official Devpost Learn `plan-lens` skill, its design-brief tem
 
 The build uses Codex with the CLAD plugin and native Lens Studio MCP tools in Lens Studio 5.24.1. TypeScript manages lesson state, conservation of credits, tax arithmetic, and input routing. SpectaclesInteractionKit supplies manipulation and interaction; SpectaclesUIKit supplies world-space controls. MeshBuilder creates the tabletop, bowls, credits, tax columns, and gate. CLAD generated the plant, music, and sound cues. Asset provenance and license notices are included in `devpost/asset-provenance.md`.
 
-Seven LEAF acceptance flows passed using actual SIK interactions: practice drag/drop, budgeting and guards, tax arithmetic, all eight AND/OR cases, complete replay across three scenarios, utility controls, and IK-assisted interaction. Native compilation and startup checks passed after project recovery. The IK check routes indirectly at 115 cm; no claim of direct arm reach or real-device comfort is made. Exact evidence and limits are recorded in `devpost/verification.md`.
+All eight actual-SIK LEAF scenarios passed for the tutor revision: required teaching and worked examples, Back/Next and preserved learner state, practice drag/drop, budgeting, tax arithmetic, all eight AND/OR cases, full replay, utility controls, and IK interaction. Native compilation and startup checks passed. The expanded replay took 125.823 seconds, exceeding the tool's response window; the native LEAF log and final state confirm its pass. Exact evidence is in `devpost/verification.md`. The IK check routes indirectly at 115 cm; no claim of direct arm reach or real-device comfort is made.
 
 ## Build challenges
 

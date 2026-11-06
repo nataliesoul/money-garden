@@ -1,22 +1,22 @@
 # Learning content and verification
 
-Reviewed 2026-11-06. All proposed examples use fictional credits and practice tax rates. No personal financial information is collected.
+Reviewed 2026-11-06. All examples use fictional credits and practice tax rates. No personal financial information is collected.
 
 ## Budgeting
 
-Consumer.gov explains a budget as a plan for income and spending, including saving for goals and emergencies. Money Garden will represent allocation explicitly and preserve the total; it will not prescribe a universal budget percentage.
+Consumer.gov explains a budget as a plan for income and spending, including saving for goals and emergencies. Money Garden represents allocation explicitly and preserves the total; it does not prescribe a universal budget percentage.
 
 https://consumer.gov/your-money/making-budget
 
 ## Emergency reserves
 
-The CFPB describes an emergency fund as money reserved for unexpected costs and notes that the amount depends on individual circumstances. The game's reserve target is a disclosed challenge constraint, not a recommendation for everyone.
+The CFPB describes an emergency fund as money reserved for unexpected costs and notes that the amount depends on individual circumstances. The lesson's reserve target is a disclosed scenario constraint, not a recommendation for everyone.
 
 https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/
 
 ## Progressive tax layers
 
-The IRS explains that higher bracket rates apply to income in the higher bracket, rather than retroactively to all income. The game teaches that concept using explicitly fictional rates and thresholds. It does not calculate actual liability or model benefits, withholding, payroll taxes, deductions, or credits.
+The IRS explains that higher bracket rates apply to income in the higher bracket, rather than retroactively to all income. The tutor teaches that concept using explicitly fictional rates and thresholds. It does not calculate actual liability or model benefits, withholding, payroll taxes, deductions, or credits.
 
 https://www.irs.gov/filing/federal-income-tax-rates-and-brackets
 
@@ -39,4 +39,8 @@ AND is appropriate only because the example policy explicitly requires both esse
 
 ## Honest learning feedback
 
-Assess demonstrated choices and explain their consequences. A game completion badge is not proof of real-world financial competence. Shortfalls invite revision; they do not label the learner irresponsible.
+Explain terms and show a worked example before assessing demonstrated choices. Give the learner control over the pace, with Back and Next, then guide them toward the next practice action. Explain consequences using the actual quantities or truth values. Teach again must preserve the learner's work while replaying a separate demonstration.
+
+The budget example allocates 500 essentials, 300 reserve, and 200 choice from 1,000 credits; the 200-credit surprise leaves 100 reserve. The tax example builds each layer before comparing 2,500 and 3,000. The logic example holds A true and B false while contrasting AND closed with OR open. These examples are the teaching, not hidden answer feedback.
+
+Completing the experience is not proof of real-world financial competence. Shortfalls invite revision; they do not label the learner irresponsible. No learning-outcome study has been conducted.

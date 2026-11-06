@@ -1,6 +1,6 @@
 # Money Garden — run and demonstrate
 
-Money Garden is an educational Specs Lens for a broad audience. It uses fictional credits to teach budgeting, progressive tax layers, and Boolean decision rules. No prior financial or programming knowledge is assumed.
+Money Garden is a Specs AR tutor for a broad audience. It uses explanations, spatial worked examples, and guided practice to teach budgeting, progressive tax layers, and Boolean decision rules. No prior financial or programming knowledge is assumed.
 
 ## Open the project
 
@@ -9,17 +9,17 @@ Money Garden is an educational Specs Lens for a broad audience. It uses fictiona
 3. Use the SPECS27 device and Interactive Preview, which the project is configured to use. No headset is required for the demonstration.
 4. Click the large **Start growing** control. Mouse clicks simulate standard pinch interactions.
 
-Seven LEAF acceptance flows passed in Preview. Read `devpost/verification.md` for coverage and limitations; successful startup alone is not the evidence. IK coverage used far-field interaction and does not establish physical arm reach or hardware comfort.
+Read `devpost/verification.md` for the tutor revision's acceptance results and limitations; successful startup alone is not the evidence. IK coverage uses far-field interaction and does not establish physical arm reach or hardware comfort.
 
-## Play through
+## Learn through the tutor
 
-1. **Practice:** move the 100-credit token to Essentials, or press Allocate. Begin budget restores the full starting income.
-2. **Budget:** cover the stated essentials and surprise reserve. Allocate in 100-credit increments; Undo reverses the last allocation. Run month shows uncovered costs and reserve remaining. Retry lets you revise without penalties.
-3. **Taxes:** predict the effect of more income, then add/remove 500 credits and compare tax with retained income. The displayed rates are fictional practice rates, not a real tax schedule.
-4. **Logic:** toggle the two conditions, choose AND or OR, predict the result, and Run. This purchase policy requires both conditions, so test AND before finishing. OR is correct for other policies that accept either condition.
-5. **Summary:** review the three takeaways, Replay the same scenario, or choose New scenario for different amounts.
+1. **Budget teaching:** Start opens the explanation. Use Next and Back to see what income, essentials, reserve, and choice mean. The worked example allocates 500 / 300 / 200 from 1,000 credits, then shows a 200-credit surprise leaving 100 in reserve. These example credits are separate from your budget.
+2. **Budget practice:** move the 100-credit token to Essentials, or press Allocate. **Plan with guidance** restores the full starting income. Follow the tutor's next-step hints, allocate in 100-credit increments, and use Undo to revise. **Check my plan** asks whether both needs are covered before running the month; the result explains uncovered costs and reserve remaining. Retry has no penalty.
+3. **Tax teaching and practice:** the tutor defines taxable income, tax, and retained income, then builds the three layers. Compare 2,500 credits (200 tax / 2,300 retained) with 3,000 (300 / 2,700). Complete the guided step before making a prediction and exploring the controls. Rates are fictional practice rates, not a real tax schedule.
+4. **Logic teaching and practice:** learn true/false conditions, AND (both), and OR (either or both). With A true and B false, watch AND close the gate and OR open it. Complete the guided example, then change conditions, choose a rule, predict, and Run. The purchase policy requires both conditions, so test AND before finishing. OR is correct for policies that accept either condition.
+5. **Summary:** review the three takeaways, Replay the same scenario, or choose New scenario for different amounts. Each new attempt includes teaching, so the flow remains suitable for someone learning the topic for the first time.
 
-**Details** opens the current explanation. **Mute** controls sound. **Recenter** brings the world-space model back in front of you without resetting the lesson. **Restart** starts the current scenario again.
+**Teach again** revisits the worked example without changing your allocations, predictions, or progress; return to continue your work. **Details** adds context. **Mute** controls sound. **Recenter** brings the world-space model back in front of you without resetting the lesson. **Restart** starts the current scenario again. Teaching has no forced timers.
 
 ## Demonstration checks
 
@@ -28,7 +28,7 @@ Seven LEAF acceptance flows passed in Preview. Read `devpost/verification.md` fo
 - Keep the full video below three minutes and publish it on YouTube.
 - Clearly identify the broad audience and the three concepts taught.
 - Call the numbers fictional credits and the tax rates practice rates.
-- Show at least one cause and consequence: a budget shortfall and retry, the extra 400 retained from 500 more taxable income, or the difference between OR and AND when one condition is false.
+- Show a tutor explanation and visible worked example before any question. Include at least one cause and consequence: the reserve absorbing a surprise, the extra 400 retained from 500 more taxable income, or the difference between OR and AND when one condition is false.
 - End at the summary and demonstrate replay or a new scenario.
 - Distinguish Preview-tested behavior from real-device comfort and hand tracking, which have not been validated on hardware.
 
@@ -36,6 +36,7 @@ Seven LEAF acceptance flows passed in Preview. Read `devpost/verification.md` fo
 
 - `Assets/Scripts/MoneyGardenMain.ts`: lesson flow and input routing.
 - `Assets/Scripts/MoneyGardenState.ts`: budget scenarios, tax formula, and logic state.
+- `Assets/Scripts/MoneyGardenTutor.ts`: worked-example steps and independent demonstration state.
 - `Assets/Scripts/MoneyGardenWorld.ts`: spatial model, token manipulation, and animation.
 - `Assets/Scripts/MoneyGardenPanelUI.ts`: UIKit labels, panels, and controls.
 - `Assets/Scripts/MoneyGardenAudio.ts`: music and feedback cues.

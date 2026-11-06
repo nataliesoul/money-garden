@@ -24,7 +24,8 @@ export class MoneyGardenWorld extends BaseScriptComponent {
  private aOn!:SceneObject;private aOff!:SceneObject;private bOn!:SceneObject;private bOff!:SceneObject;
  private gateBar!:SceneObject;private pulse!:SceneObject;private pulseA!:SceneObject;private pulseB!:SceneObject;private inputA=false;private inputB=false;private pulseStart=-10;private passed=false;
  private time=0;private dragging=false;private lastModel='';private stage='welcome';private plantVisual!:SceneObject;private plantScale=1;
- private allocation=[0,0,0];private transfer!:SceneObject;private transferStart=-10;private transferTarget=vec3.zero();private hiddenCoin:SceneObject|null=null;
+ private allocation=[0,0,0];private interactive=true;private sourceCollider!:ColliderComponent;private sourceInteract!:Interactable;private sourceDrag!:InteractableManipulation;
+ private flightMeshes:SceneObject[]=[];private flights:{object:SceneObject;start:number;from:vec3;to:vec3;coin:SceneObject|null}[]=[];private shownReserve=0;private portions=[0,0,0];
  onAwake():void {this.createEvent('OnStartEvent').bind(()=>this.build());this.createEvent('UpdateEvent').bind(()=>this.update());}
  private build():void {
   if(!this.material||!this.board||!this.source)return;
@@ -32,13 +33,13 @@ export class MoneyGardenWorld extends BaseScriptComponent {
   this.lathe(this.board,'IvoryRim',[[1,.05],[1.015,.25],[1,.5],[.965,.5],[.965,.3]],IVORY,24,13);
   [this.essentials,this.savings,this.wants].forEach((slot,i)=>{this.lathe(slot,'DestinationBowl',[[0,0],[5.7,0],[6,.5],[6,1.5],[5.6,1.7],[5.1,.5],[0,.5]],i===0?IVORY:i===1?MINT:LILAC);this.stacks.push(this.obj(slot,'AllocatedCredits'));});
   const visual=this.lathe(this.source,'CreditToken',[[0,-.6],[2.8,-.6],[3,-.4],[3,.4],[2.8,.6],[0,.6]],GOLD);visual.getTransform().setLocalRotation(quat.fromEulerAngles(Math.PI/2,0,0));
-  const col=this.source.createComponent('Physics.ColliderComponent');const shape=Shape.createBoxShape();shape.size=new vec3(7,7,4);col.shape=shape;col.debugDrawEnabled=this.debugColliders;
-  const interact=this.source.createComponent(Interactable.getTypeName()) as Interactable;interact.targetingMode=3;
+  const col=this.source.createComponent('Physics.ColliderComponent');const shape=Shape.createBoxShape();shape.size=new vec3(7,7,4);col.shape=shape;col.debugDrawEnabled=this.debugColliders;this.sourceCollider=col;
+  const interact=this.source.createComponent(Interactable.getTypeName()) as Interactable;interact.targetingMode=3;this.sourceInteract=interact;
   const drag=this.source.createComponent(InteractableManipulation.getTypeName()) as InteractableManipulation;
-  drag.setCanRotate(false);drag.setCanScale(false);drag.enableStretchZ=false;
+  this.sourceDrag=drag;drag.setCanRotate(false);drag.setCanScale(false);drag.enableStretchZ=false;
   drag.onManipulationStart.add(()=>{this.dragging=true;});
   drag.onManipulationEnd.add(()=>{this.dragging=false;const p=this.source.getTransform().getLocalPosition();let closest=-1,dist=1;[this.essentials,this.savings,this.wants].forEach((o,i)=>{const q=o.getTransform().getLocalPosition();const d=((p.x-q.x)/7)**2+((p.y-q.y-3)/8)**2+((p.z-q.z)/14)**2;if(d<dist){dist=d;closest=i;}});this.resetSource();this.onDrop.invoke(closest);});
-  this.transfer=this.lathe(this.budget,'MovingCredit',[[0,-.4],[2.8,-.4],[2.8,.4],[0,.4]],GOLD);this.transfer.enabled=false;
+  for(let i=0;i<12;i++){const token=this.lathe(this.budget,'MovingCredit'+i,[[0,-.2],[2.8,-.2],[2.8,.2],[0,.2]],GOLD);token.enabled=false;this.flightMeshes.push(token);}
   this.plantVisual=this.obj(this.plant,'PlantGrowth');PLANT.instantiate(this.plantVisual);
   for(let i=0;i<3;i++) {const o=this.obj(this.taxes,'IncomeLayer'+i,new vec3(-15+i*15,1+i*3,0));this.lathe(o,'LayerTray',[[0,0],[5.8,0],[6,.25],[6,.7],[5.6,.8],[0,.8]],[...([MINT,GOLD,LILAC][i])] as Color);this.layers.push(this.obj(o,'TaxableAmount'));}
   this.taxCoins=this.obj(this.taxes,'IncomeKey',new vec3(0,0,8));
@@ -52,34 +53,44 @@ export class MoneyGardenWorld extends BaseScriptComponent {
   this.ready=true;
  }
  private resetSource():void {this.source.getTransform().setLocalPosition(new vec3(0,11,11));this.source.getTransform().setLocalRotation(quat.quatIdentity());this.source.getTransform().setLocalScale(vec3.one());}
- show(s:MoneyGardenState):void {
-  if(!this.ready)return;this.stage=s.stage;const budget=['practice','budget','month'].indexOf(s.stage)>=0;
-  this.budget.enabled=budget;this.savings.enabled=s.stage!=='practice';this.wants.enabled=s.stage!=='practice';this.taxes.enabled=s.stage==='tax'||s.stage==='taxPredict';this.logic.enabled=s.stage==='logic'||s.stage==='logicResult';
+ show(s:MoneyGardenState,interactive=true):void {
+  if(!this.ready)return;this.stage=s.stage;const budget=['practice','budget','budgetPredict','month'].indexOf(s.stage)>=0;
+  this.budget.enabled=budget;this.savings.enabled=s.stage!=='practice';this.wants.enabled=s.stage!=='practice';this.taxes.enabled=s.stage==='tax'||s.stage==='taxPredict'||s.stage==='taxGuided';this.logic.enabled=s.stage==='logic'||s.stage==='logicResult'||s.stage==='logicGuided';
   this.source.enabled=(s.stage==='practice'&&s.history.length===0)||(s.stage==='budget'&&s.remaining>0);
+  this.sourceCollider.enabled=interactive;this.sourceInteract.enabled=interactive;this.sourceDrag.enabled=interactive;
   this.plant.enabled=!this.taxes.enabled&&!this.logic.enabled;
   this.plantScale=s.stage==='welcome'||s.stage==='summary'?1:.3+.7*Math.min(1,(s.stage==='month'?s.savingsAfter:s.allocated[1])/300);
-  const key=s.snapshot();if(key===this.lastModel)return;this.lastModel=key;
-  this.hiddenCoin=null;this.stacks.forEach((o,i)=>this.coins(o,(s.stage==='month'&&i===1?s.savingsAfter:s.allocated[i])/100,GOLD));
-  if(s.stage==='practice'||s.stage==='budget'){const bin=s.allocated.findIndex((v,i)=>v>this.allocation[i]);if(bin>=0){this.transferStart=this.time;this.transfer.enabled=true;const slot=[this.essentials,this.savings,this.wants][bin];const p=slot.getTransform().getLocalPosition();this.transferTarget=new vec3(p.x,2+s.allocated[bin]/100*.9,p.z);const stack=this.stacks[bin];if(stack.getChildrenCount()){this.hiddenCoin=stack.getChild(stack.getChildrenCount()-1);this.hiddenCoin.enabled=false;}}}else{this.transfer.enabled=false;this.transferStart=-10;}
-  this.allocation=s.allocated.slice();if(s.stage!=='logicResult'){this.pulseStart=-10;this.pulse.enabled=false;this.pulseA.enabled=false;this.pulseB.enabled=false;}
+  const key=s.snapshot()+':'+interactive;if(key===this.lastModel)return;this.lastModel=key;
+  this.clearFlights();if(this.interactive!==interactive){this.allocation=[0,0,0];this.shownReserve=0;this.portions=[0,0,0];}this.interactive=interactive;
+  this.stacks.forEach((o,i)=>this.coins(o,(s.stage==='month'&&i===1?s.savingsAfter:s.allocated[i])/100,GOLD));
+  if(s.stage==='practice'||s.stage==='budget'){
+   [this.essentials,this.savings,this.wants].forEach((slot,bin)=>{const before=Math.max(0,this.allocation[bin]/100),after=s.allocated[bin]/100,p=slot.getTransform().getLocalPosition();
+    for(let i=before;i<after;i++){const coin=this.stacks[bin].getChild(i);coin.enabled=false;this.fly(new vec3(0,11,11),new vec3(p.x,.8+i*.9,p.z),coin);}
+   });
+  }else if(s.stage==='month'&&this.shownReserve>s.savingsAfter){const p=this.savings.getTransform().getLocalPosition();for(let i=s.savingsAfter/100;i<this.shownReserve/100;i++)this.fly(new vec3(p.x,.8+i*.9,p.z),new vec3(0,-3,18),null);}
+  this.shownReserve=s.stage==='month'?s.savingsAfter:s.allocated[1];this.allocation=s.allocated.slice();
+  if(s.stage!=='logicResult'&&!(s.stage==='logicGuided'&&s.logicGuidedDone)){this.pulseStart=-10;this.pulse.enabled=false;this.pulseA.enabled=false;this.pulseB.enabled=false;}
   const portions=[Math.min(s.income,1000),Math.min(Math.max(s.income-1000,0),1000),Math.max(s.income-2000,0)];
-  this.layers.forEach((o,i)=>{while(o.getChildrenCount())o.getChild(0).destroy();const portion=portions[i],due=portion*[0,.1,.2][i],kept=portion-due;const unit=.006;
+  this.layers.forEach((o,i)=>{while(o.getChildrenCount())o.getChild(0).destroy();const portion=portions[i];o.getTransform().setLocalScale(new vec3(1,portion>0?Math.max(.001,this.portions[i]/portion):1,1));const due=portion*[0,.1,.2][i],kept=portion-due;const unit=.006;
    if(kept>0)this.lathe(o,'RetainedIncome',[[0,.8],[4.7,.8],[4.7,.8+kept*unit],[0,.8+kept*unit]],MINT);
    if(due>0)this.lathe(o,'TaxPortion',[[0,.8+kept*unit],[4.7,.8+kept*unit],[4.7,.8+portion*unit],[0,.8+portion*unit]],GOLD);
   });
-  this.inputA=s.a;this.inputB=s.b;
+  this.portions=portions;this.inputA=s.a;this.inputB=s.b;
   this.aOn.enabled=s.a;this.aOff.enabled=!s.a;this.bOn.enabled=s.b;this.bOff.enabled=!s.b;
-  this.passed=s.stage==='logicResult'&&s.gate;
+  this.passed=(s.stage==='logicResult'||s.stage==='logicGuided'&&s.logicGuidedDone)&&s.gate;
  }
  runPulse():void {this.pulseStart=this.time;this.pulse.enabled=true;}
  private update():void {if(!this.ready)return;this.time+=getDeltaTime();const dt=getDeltaTime();const growth=this.plantVisual.getTransform().getLocalScale().x;const g=growth+(this.plantScale-growth)*Math.min(1,dt*4);this.plantVisual.getTransform().setLocalScale(new vec3(g,g,g));
-  const flight=(this.time-this.transferStart)/.65;if(flight<1){const p=vec3.lerp(new vec3(0,11,11),this.transferTarget,Math.max(0,flight));p.y+=Math.sin(flight*Math.PI)*5;this.transfer.getTransform().setLocalPosition(p);}else{this.transfer.enabled=false;if(this.hiddenCoin&&!isNull(this.hiddenCoin))this.hiddenCoin.enabled=true;this.hiddenCoin=null;}
+  this.flights.forEach(f=>{const u=(this.time-f.start)/.65;if(u<0){f.object.enabled=false;return;}if(u>=1){f.object.enabled=false;if(f.coin&&!isNull(f.coin))f.coin.enabled=true;return;}f.object.enabled=true;const p=vec3.lerp(f.from,f.to,u);p.y+=Math.sin(u*Math.PI)*5;f.object.getTransform().setLocalPosition(p);});
+  this.layers.forEach(layer=>{const t=layer.getTransform(),v=t.getLocalScale().y;t.setLocalScale(new vec3(1,v+(1-v)*Math.min(1,dt*6),1));});
   const t=this.time-this.pulseStart;const incoming=t>=0&&t<1.2;
   this.pulseA.enabled=incoming&&this.inputA;this.pulseB.enabled=incoming&&this.inputB;
   if(incoming){const u=Math.min(1,t/1.2);this.pulseA.getTransform().setLocalPosition(new vec3(-15+15*u,4,1));this.pulseB.getTransform().setLocalPosition(new vec3(15-15*u,4,1));}
   this.pulse.enabled=t>=1.2&&t<2.6&&this.passed;
   if(this.pulse.enabled)this.pulse.getTransform().setLocalPosition(new vec3(0,3,1+(t-1.2)/1.4*10));
   const target=this.passed?8:3;const tr=this.gateBar.getTransform(),p=tr.getLocalPosition();tr.setLocalPosition(new vec3(0,p.y+(target-p.y)*Math.min(1,dt*6),0));if(!this.dragging&&this.source.enabled)this.source.getTransform().setLocalPosition(new vec3(0,11+Math.sin(this.time*1.7)*.3,11));}
+ private clearFlights():void {this.flights.forEach(f=>{f.object.enabled=false;if(f.coin&&!isNull(f.coin))f.coin.enabled=true;});this.flights=[];}
+ private fly(from:vec3,to:vec3,coin:SceneObject|null):void {const i=this.flights.length;if(i>=this.flightMeshes.length){if(coin)coin.enabled=true;return;}this.flights.push({object:this.flightMeshes[i],start:this.time+i*.08,from,to,coin});}
  private coins(parent:SceneObject,count:number,color:Color,r=2.9,step=.9):void {
   while(parent.getChildrenCount())parent.getChild(0).destroy();
   for(let i=0;i<Math.round(count);i++){

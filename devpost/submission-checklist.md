@@ -9,7 +9,7 @@ Deadline: **November 9, 2026, 5:00 p.m. America/New_York (EST)**.
 - [ ] New work created within the October 15–November 9 submission period; disclose incorporated pre-existing work and third-party assets.
 - [x] Planning through the official Devpost Learn skill pack; reviewed design brief in `devpost/`.
 - [x] Working Specs Lens built through CLAD and native Lens Studio MCP.
-- [x] Native compile/startup checks and seven passing LEAF flows cover the five done criteria. Final evidence and hardware limits are recorded in `verification.md`.
+- [x] Tutor revision: native compile/startup and all eight LEAF scenarios passed after the user requested teaching before questions. Final evidence, replay transport-limit distinction, and hardware limits are recorded in `verification.md`.
 - [x] Public repository: https://github.com/nataliesoul/money-garden contains the Lens Studio project, required packages, and `devpost/` folder. Local credentials, signing keys, caches, and workspace settings were excluded.
 - [ ] Public YouTube video under three minutes showing the actual working Lens. Show the Lens within the first ten seconds and include an uncut sequence, following the November 6 organizer guidance.
 - [x] Devpost draft description covers the user, problem, functionality, spatial design, development lessons, and Devpost Learn/CLAD usage. Claims match Preview evidence and disclose hardware limits.
@@ -23,9 +23,9 @@ The formal rules call planning docs optional, while the overview, submission for
 
 | User criterion | Planned evidence |
 | --- | --- |
-| User experience | One practice interaction, few large targets, contextual feedback, undo/retry/recenter, mouse-compatible SIK interactions |
-| Completeness | Welcome → three connected lessons → summary → replay/new scenario, with failure recovery |
-| Depth | World-space scale and inspection, direct manipulation, spatial animation, logic simulation, supplemental audio |
+| User experience | Explain → worked example → guided practice → prediction; user-paced Back/Next; Teach again preserving progress; contextual feedback and forgiving retries |
+| Completeness | Welcome → three tutor-led lessons → summary → replay/new scenario, with failure recovery |
+| Depth | World-space worked examples, direct manipulation, animated allocation/reserve depletion, progressive tax layers, logic simulation, supplemental audio |
 | Design and polish | Consistent art direction, readable additive-display UI, uncluttered stages, responsive highlighting, screenshots reviewed |
 
 Official equally weighted judging categories: Design, Technical Implementation, Innovation/Idea, Presentation. The submission must address both the user's quality checklist and these official categories.
@@ -33,9 +33,9 @@ Official equally weighted judging categories: Design, Technical Implementation, 
 ## Suggested demo sequence (target 2:40)
 
 - 0:00–0:10: show the active garden and identify the intended learner.
-- 0:10–0:55: uncut budget allocation, surprise expense, and visible result.
-- 0:55–1:30: predict then reveal the incremental tax-layer example.
-- 1:30–2:05: demonstrate why OR admits an unsafe purchase under this scenario's stated policy, then switch to AND.
+- 0:10–0:55: uncut tutor example allocating the budget and showing the reserve absorb a surprise.
+- 0:55–1:30: show tax-layer teaching and the incremental worked example before practice.
+- 1:30–2:05: define conditions and contrast the tutor's AND/OR demonstrations before independent prediction.
 - 2:05–2:25: reach the summary and start a new scenario.
 - 2:25–2:40: briefly explain the design brief, CLAD build, and verified tests. Do not claim device testing without evidence.
 
@@ -53,13 +53,13 @@ The live form requires personal identity/location and eligibility declarations, 
 
 Native connection checks succeeded: ListAllPanels and ExecuteEditorCode. Loaded project matched `E:/Dev/SPECS/Learn_AR_with_Specs/Learn_AR_with_Specs.esproj`; account authorization was true. Executable version: 5.24.1.
 
-## Final build and submission checkpoint — 2026-11-06
+## Build and submission checkpoint — 2026-11-06
 
-The implementation is saved and complete in Lens Studio Preview. Native compilation/startup checks passed, along with all seven actual-SIK LEAF flows. The final report is `verification.md`; clean screenshots are in `screenshots/`. The project opens at welcome with diagnostic overlays hidden and no tests running automatically.
+The tutor-first revision adds default explanations, spatial worked examples, guided practice, and preservation of learner state during Teach again. All eight actual-SIK LEAF scenarios passed, superseding the earlier seven-scenario report. Native compilation/startup passed. Replay's 125.823-second run exceeded the tool response window but completed with an authoritative native LEAF pass and expected final state. Clean teaching screenshots are in `screenshots/tutor-budget.png`, `tutor-tax.png`, and `tutor-logic.png`.
 
-The public repository is https://github.com/nataliesoul/money-garden. It includes the native-exported scene/assets/manifest, the required original package archives, and the planning, demo, provenance, license, and verification documents. It excludes local credentials, signing keys, caches, and editor workspace files. Thirty source/test/package files and metadata were hash-compared with the verified project with no mismatches before publication.
+The public repository is https://github.com/nataliesoul/money-garden. It includes the native-exported scene/assets/manifest, the required original package archives, and the planning, demo, provenance, license, and verification documents. It excludes local credentials, signing keys, caches, and editor workspace files. Publication checks compare source/test/package files and metadata with the verified project before pushing.
 
-The Devpost draft is https://devpost.com/software/money-garden (project 1530579, submission 1285095), with a description, repository link, thumbnail, and three verified gallery screenshots. It remains a Draft, not a submitted entry.
+The Devpost draft is https://devpost.com/software/money-garden (project 1530579, submission 1285095), with a description, repository link, tutor thumbnail, and six gallery screenshots: three practice views and three tutor worked examples. It remains a Draft, not a submitted entry.
 
 Remaining: a public YouTube demonstration under three minutes; the participant's questionnaire responses, creation-period/asset-use declarations, and rule/eligibility agreement. The private local worksheet is `Submission/participant-answers.md` and is excluded from the public repository. A timed narration is ready in `demo-narration.md`.
 

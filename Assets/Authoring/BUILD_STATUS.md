@@ -1,13 +1,15 @@
-# Money Garden final build checkpoint — 2026-11-06
+# Money Garden tutor-first final checkpoint — 2026-11-06
 
-Implementation and live Preview acceptance are complete. Final native TypeScript compile succeeded and runtime refresh reached welcome at 17:36 Eastern without application script exceptions. All seven default LEAF scenarios returned succeeded and matching scenario-manager PASSED lines: practice, budget, tax, logic, replay, utilities, IK. Full details and exact evidence are in `devpost/verification.md`.
+This supersedes the earlier question-first build. The Lens now teaches each topic with a user-paced spatial worked example, then guided practice, then an independent check. Teach again uses an isolated demo model and returns to unchanged learner work.
 
-The package recovery and consent requests are resolved. Official Leaf 2.0.2 / AiPreviewAgentInteract 2.0.1 work with the unchanged original SpectaclesInteractionKit / SpectaclesUIKit 2.0.0 packages. No Cache or immutable package source edits were made.
+Eight default LEAF scenarios have authoritative PASSED evidence: tutor, practice, budget, tax, logic, replay, utilities, IK. Seven native calls returned succeeded. Full replay completed at125.823s after the120s transport timeout; matching Lens-side PASSED and final scenario2 summary confirm completion. See `devpost/verification.md` for exact times, coverage and distinction.
 
-Actual SIK inputs verify token drag, allocation conservation/undo/shortfall/retry, exact fictional taxes, all eight Boolean truth cases, policy gating, complete replay across three scenarios and utility controls. Persistent buttons fix trigger lifecycle; audio initialization/guards fix first-action failure. Final plant position is (14,3.2,-6) cm; StationLabels (0,-1.5,18) cm with opaque contrast plaques; gold/bronze coins distinguish allocations.
+Native compilation and runtime refresh pass. Initial scene is welcome, tests do not auto-run, diagnostic overlay is hidden. Final native project save/export follows this checkpoint. Clean screenshots under `devpost/screenshots/` include tutor-budget, tutor-tax and tutor-logic.
 
-Final clean gallery is `devpost/screenshots/`. Opening state is welcome; LEAF diagnostic overlay is hidden and tests never auto-run. The intended project is `Learn_AR_with_Specs.esproj`; native save is part of this final checkpoint.
+New source: MoneyGardenTutor.ts. Teaching snapshots expose separate demo and learner state; answer/input controls are disabled until appropriate practice/check stages. Tax definitions and fictional-rate labels are visible. Actual SIK tests cover all tutorial pages, Back/Replay/Return, preserved allocations/predictions, guided steps, causal corrective feedback, token drag, conservation, tax arithmetic, all eight Boolean cases and replay across three scenarios.
 
-Known limits: editor Preview only; no physical Specs run, direct reach/hand comfort/performance validation, or audio listening assessment. IK presses passed using indirect targeting. Two-hand manipulation and moving-camera/out-of-view recovery were not explicitly exercised. Native LEAF reset-state and material batching warnings are documented in verification.md.
+Package recovery/consent resolved. Leaf2.0.2 and AiPreviewAgentInteract2.0.1 preserve original SIK/UIKit2.0.0 packages. No immutable package/Cache edits. Prior button lifecycle/audio initialization fixes remain in place.
+
+Limits: Preview only; no physical Specs, direct reach/comfort/performance certification or audio listening. IK used indirect routes. Moving-camera recovery and two-hand manipulation were not explicitly tested. Native transient LEAF reset-state/material-batching warnings remain documented.
 
 No Lens publication or final hackathon submission is claimed by this checkpoint.
