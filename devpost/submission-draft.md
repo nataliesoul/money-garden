@@ -51,9 +51,9 @@ All money uses fictional credits. The tax lesson explicitly labels its practice 
 - How did AI cost or usage limits affect your work?
 - What would you improve next?
 
-## Links — still required
+## Links
 
-- Public source repository: not created/published yet.
+- Public source repository: https://github.com/nataliesoul/money-garden
 - Public YouTube demonstration: not recorded/uploaded yet.
 
 ## Attribution and disclosure
