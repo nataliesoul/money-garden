@@ -1,6 +1,6 @@
 # Money Garden
 
-Devpost draft: https://devpost.com/software/money-garden (project 1530579, hackathon submission 1285095). The gallery includes three practice views and three new tutor worked-example views; the thumbnail shows the budget tutor. It has not been submitted. Personal reflections and eligibility declarations remain for the participant to supply.
+Devpost draft: https://devpost.com/software/money-garden (project 1530579, hackathon submission 1285095). The latest gallery additions show the custom botanical tutor interface; the thumbnail shows the updated budget tutor. Earlier gallery images document the previous presentation. It has not been submitted. Personal reflections and eligibility declarations remain for the participant to supply.
 
 ## Tagline
 
@@ -26,19 +26,25 @@ The model stays in world space after initialization or recentering. Money moves 
 
 This version uses a virtual tabletop. It does not claim furniture detection, persistent spatial anchors, or a real-device demonstration. The logic conditions are explorable examples, separate from the preceding budget state.
 
+## Custom interface
+
+The botanical field-guide interface carries the garden theme into the controls. Teal gradient cards and a sprout mark frame three chapter tabs; gold highlights the next teaching action and the feedback inset. Station plaques separate headings from larger numeric values, making the financial examples easier to compare with the spatial models. Custom hover and pressed states provide immediate feedback. All labels remain native text, and the controls retain standard SIK interaction and stable identities as lessons change.
+
 ## Technology explanation — submission field 29092
 
 Planning used the official Devpost Learn `plan-lens` skill, its design-brief template, and its AR design and Preview limits references. The participant selected Money Garden for a broad audience. The approved brief is included in `devpost/design-brief.md`.
 
 The build uses Codex with the CLAD plugin and native Lens Studio MCP tools in Lens Studio 5.24.1. TypeScript manages lesson state, conservation of credits, tax arithmetic, and input routing. SpectaclesInteractionKit supplies manipulation and interaction; SpectaclesUIKit supplies world-space controls. MeshBuilder creates the tabletop, bowls, credits, tax columns, and gate. CLAD generated the plant, music, and sound cues. Asset provenance and license notices are included in `devpost/asset-provenance.md`.
 
-All eight actual-SIK LEAF scenarios passed for the tutor revision: required teaching and worked examples, Back/Next and preserved learner state, practice drag/drop, budgeting, tax arithmetic, all eight AND/OR cases, full replay, utility controls, and IK interaction. Native compilation and startup checks passed. The expanded replay took 125.823 seconds, exceeding the tool's response window; the native LEAF log and final state confirm its pass. Exact evidence is in `devpost/verification.md`. The IK check routes indirectly at 115 cm; no claim of direct arm reach or real-device comfort is made.
+All eight actual-SIK LEAF scenarios passed for the custom UI revision: required teaching and worked examples, Back/Next and preserved learner state, practice drag/drop, budgeting, tax arithmetic, all eight AND/OR cases, full replay, utility controls, and IK interaction. Native compilation and startup checks passed. The expanded replay took 126.702 seconds, exceeding the tool's response window; the native LEAF log and final state confirm its pass. Exact evidence is in `devpost/verification.md`. The IK check routes indirectly at 115 cm; no claim of direct arm reach or real-device comfort is made.
 
 ## Build challenges
 
 Automatically installed inspection/testing dependencies used newer package names than the project's installed frameworks. The build preserved the original SIK/UIKit versions, adapted verified imports in an editable inspection package, and selected compatible official testing packages through native APIs. A package reload error required reopening the saved project.
 
 Actual interaction testing then exposed a button-lifecycle bug: refreshing a panel destroyed the control while its release event was still finishing. The fix keeps button identities stable and queues layout changes. This is why compilation and a welcome screenshot alone were insufficient verification.
+
+Reviewing the custom interface at the maximum example income exposed a tax column covering the feedback inset. A shared smaller height scale and closer tray spacing keep the retained/tax proportions intact while leaving room for the tutor's explanation.
 
 ## Learning content
 

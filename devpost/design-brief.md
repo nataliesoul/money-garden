@@ -117,6 +117,9 @@ Each one can be checked in Lens Studio's preview.
 
 ## Design and polish targets
 
+- Custom UI revision requested by the user on November 6: "Also use custom UI so experience looks impressive." Give the tutor a botanical field-guide identity with layered lesson cards, clear chapter markers, distinct primary/secondary/utility controls, and coordinated station labels. This supersedes relying on the default translucent UIKit appearance.
+- Use supported custom UIKit visuals and standard SIK behavior. Retain the tutor-first sequence, generous targets, visible labels, and persistent control identities. Hover and press feedback should be apparent without distracting from the worked example.
+- Use mint, teal, warm gold, and a restrained lavender accent. Bright text and visible edges must remain meaningful on an additive display; color alone must never convey an answer or control state. Keep decoration outside reading and interaction areas.
 - Consistent warm ivory, mint/teal, amber, and lavender palette with bright readable labels (default).
 - Soft sculpted garden objects and animated money flow, with sparse UI Kit controls. Spatial content carries the lesson; controls support it.
 - Short transition animations preserve context between the three stations. No flashing or unnecessary motion.

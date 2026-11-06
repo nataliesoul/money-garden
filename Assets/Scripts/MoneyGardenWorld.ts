@@ -41,7 +41,7 @@ export class MoneyGardenWorld extends BaseScriptComponent {
   drag.onManipulationEnd.add(()=>{this.dragging=false;const p=this.source.getTransform().getLocalPosition();let closest=-1,dist=1;[this.essentials,this.savings,this.wants].forEach((o,i)=>{const q=o.getTransform().getLocalPosition();const d=((p.x-q.x)/7)**2+((p.y-q.y-3)/8)**2+((p.z-q.z)/14)**2;if(d<dist){dist=d;closest=i;}});this.resetSource();this.onDrop.invoke(closest);});
   for(let i=0;i<12;i++){const token=this.lathe(this.budget,'MovingCredit'+i,[[0,-.2],[2.8,-.2],[2.8,.2],[0,.2]],GOLD);token.enabled=false;this.flightMeshes.push(token);}
   this.plantVisual=this.obj(this.plant,'PlantGrowth');PLANT.instantiate(this.plantVisual);
-  for(let i=0;i<3;i++) {const o=this.obj(this.taxes,'IncomeLayer'+i,new vec3(-15+i*15,1+i*3,0));this.lathe(o,'LayerTray',[[0,0],[5.8,0],[6,.25],[6,.7],[5.6,.8],[0,.8]],[...([MINT,GOLD,LILAC][i])] as Color);this.layers.push(this.obj(o,'TaxableAmount'));}
+  for(let i=0;i<3;i++) {const o=this.obj(this.taxes,'IncomeLayer'+i,new vec3(-15+i*15,1+i*2,0));this.lathe(o,'LayerTray',[[0,0],[5.8,0],[6,.25],[6,.7],[5.6,.8],[0,.8]],[...([MINT,GOLD,LILAC][i])] as Color);this.layers.push(this.obj(o,'TaxableAmount'));}
   this.taxCoins=this.obj(this.taxes,'IncomeKey',new vec3(0,0,8));
   for(const x of [-9,9]){const path=this.lathe(this.logic,'InputPath'+x,[[0,-6],[.28,-6],[.28,6],[0,6]],MINT);path.getTransform().setLocalPosition(new vec3(x,1,1));path.getTransform().setLocalRotation(quat.fromEulerAngles(0,0,Math.PI/2));}
   for(const [x,name] of [[-15,'A'],[15,'B']] as [number,string][]){const root=this.obj(this.logic,'Condition'+name,new vec3(x,2,1));const on=this.lathe(root,'TRUE',[[0,0],[2.5,0],[3,1],[2.5,3],[0,4]],MINT);const off=this.lathe(root,'FALSE',[[0,0],[2.5,0],[3,1],[2.5,3],[0,4]],LILAC);if(name==='A'){this.aOn=on;this.aOff=off;}else{this.bOn=on;this.bOff=off;}}
@@ -71,7 +71,7 @@ export class MoneyGardenWorld extends BaseScriptComponent {
   this.shownReserve=s.stage==='month'?s.savingsAfter:s.allocated[1];this.allocation=s.allocated.slice();
   if(s.stage!=='logicResult'&&!(s.stage==='logicGuided'&&s.logicGuidedDone)){this.pulseStart=-10;this.pulse.enabled=false;this.pulseA.enabled=false;this.pulseB.enabled=false;}
   const portions=[Math.min(s.income,1000),Math.min(Math.max(s.income-1000,0),1000),Math.max(s.income-2000,0)];
-  this.layers.forEach((o,i)=>{while(o.getChildrenCount())o.getChild(0).destroy();const portion=portions[i];o.getTransform().setLocalScale(new vec3(1,portion>0?Math.max(.001,this.portions[i]/portion):1,1));const due=portion*[0,.1,.2][i],kept=portion-due;const unit=.006;
+  this.layers.forEach((o,i)=>{while(o.getChildrenCount())o.getChild(0).destroy();const portion=portions[i];o.getTransform().setLocalScale(new vec3(1,portion>0?Math.max(.001,this.portions[i]/portion):1,1));const due=portion*[0,.1,.2][i],kept=portion-due;const unit=.003;
    if(kept>0)this.lathe(o,'RetainedIncome',[[0,.8],[4.7,.8],[4.7,.8+kept*unit],[0,.8+kept*unit]],MINT);
    if(due>0)this.lathe(o,'TaxPortion',[[0,.8+kept*unit],[4.7,.8+kept*unit],[4.7,.8+portion*unit],[0,.8+portion*unit]],GOLD);
   });

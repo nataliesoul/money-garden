@@ -1,6 +1,8 @@
-# Money Garden tutor-first verification
+# Money Garden custom UI verification
 
-Verified 2026-11-06 in Lens Studio 5.24.1 Preview using native CLAD tools and LEAF. **This report supersedes the earlier seven-test, question-first build.** All eight default acceptance scenarios have authoritative Lens-side scenario-manager PASSED evidence. Seven native calls returned succeeded; the full replay's call hit the 120-second transport limit, then the uninterrupted Lens-side run completed at 125.823 seconds with PASSED and the expected final summary. This distinction is preserved below.
+Verified 2026-11-06 in Lens Studio 5.24.1 Preview using native CLAD/LEAF. **This report describes the custom botanical UI revision and supersedes the earlier tutor-only verification.** All eight default scenarios have current UI PASSED evidence. Seven native calls returned succeeded; full replay exceeded the120-second transport limit but completed uninterrupted with Lens-side PASSED at126.702 seconds and the correct final snapshot.
+
+Tutor/practice/budget/logic passed after the custom UI freeze and before the later tax-only height correction. Tax was rerun after that correction; full replay then traversed every teaching/guided/check screen on the corrected final layout. Utilities and IK also passed afterward. No math or lesson flow changed in the UI revision.
 
 ## Actual interaction results
 
@@ -8,16 +10,16 @@ Tests use enabled SIK/UIKit controls and IncomeToken drag, not private lesson ha
 
 | Default scenario | Pass time (Eastern) | Evidence and coverage |
 | --- | --- | --- |
-| money-garden-tutor | 17:51:34.090 | Returned succeeded, 47.123s. Start opens teaching before answers. Five budget and five tax demo states have exact values and preserve learner state. No automatic page advance; Back/Replay/Return work. Demo collider/Interactable disabled. AND/OR contrasting gate geometry matches explanations. Guided steps precede independent checks. Teach again preserves allocations, plan-check state and pending logic prediction. Wrong-answer feedback traces amounts/Boolean inputs. Restart clears progress. |
-| money-garden-practice | 17:51:55.235 | Returned succeeded, 9.868s. Mandatory budget lesson, invalid drag return, valid exactly-once 100-credit drop, conservation, token disappearance after success, unchanged scale, reset to budget. |
-| money-garden-budget | 17:52:29.722 | Returned succeeded, 20.136s. Allocate/undo/conservation, prediction before month, shortfall without invented borrowing, retry, exhaustion guard, successful plan and reserve after surprise. |
-| money-garden-tax | 17:53:00.110 | Returned succeeded, 18.503s. Mandatory teaching and guided 2500→3000 example before independent 3500→4000 prediction. Exact tax/retained values, lower layers unchanged, +400 retained comparison, fictional-rate labels and 8% average-rate explanation. |
-| money-garden-logic | 17:54:05.000 | Returned succeeded, 53.591s. Mandatory AND/OR teaching and guided TRUE AND TRUE before prediction. All eight truth cases, required prediction, matching feedback/gate geometry, OR rejected for the separate BOTH-checks policy. |
-| money-garden-replay | 17:57:35.715 | **Lens-side PASSED, 125.823s; native call timed out at 120s.** No reset occurred between RUNS and PASSED. Completed first lesson, same-scenario replay, then both new scenarios with teaching and guided practice. Final summary scenario2: 400/200/300 allocation; all tutor completion flags true. |
-| money-garden-utilities | 17:58:45.963 | Returned succeeded, 11.657s. Details preserves progress; mute volume zero/restored; recenter preserves state and places content 115cm horizontally ahead/8cm below camera. |
-| money-garden-ik | 17:59:24.439 | Returned succeeded, 11.689s. IK avatar presses Start and Allocate through SIK; tutorial completed between these. Both IK routes are indirect, not proof of direct arm reach. |
+| money-garden-tutor | 18:15:05.499 | Returned succeeded, 50.042s. Start opens teaching before answers. Five budget and five tax demo states have exact values and preserve learner state. No automatic page advance; Back/Replay/Return work. Demo collider/Interactable disabled. AND/OR contrasting gate geometry matches explanations. Guided steps precede independent checks. Teach again preserves allocations, plan-check state and pending logic prediction. Wrong-answer feedback traces amounts/Boolean inputs. Restart clears progress. |
+| money-garden-practice | 18:15:29.379 | Returned succeeded, 9.922s. Mandatory budget lesson, invalid drag return, valid exactly-once 100-credit drop, conservation, token disappearance after success, unchanged scale, reset to budget. |
+| money-garden-budget | 18:16:00.960 | Returned succeeded, 20.172s. Allocate/undo/conservation, prediction before month, shortfall without invented borrowing, retry, exhaustion guard, successful plan and reserve after surprise. |
+| money-garden-tax | 18:22:09.804 | Returned succeeded, 19.010s. Mandatory teaching and guided 2500→3000 example before independent 3500→4000 prediction. Exact tax/retained values, lower layers unchanged, +400 retained comparison, fictional-rate labels and 8% average-rate explanation. |
+| money-garden-logic | 18:17:44.816 | Returned succeeded, 53.854s. Mandatory AND/OR teaching and guided TRUE AND TRUE before prediction. All eight truth cases, required prediction, matching feedback/gate geometry, OR rejected for the separate BOTH-checks policy. |
+| money-garden-replay | 18:25:29.929 | **Lens-side PASSED, 126.702s; native call timed out at 120s.** No reset occurred between RUNS and PASSED. Completed first lesson, same-scenario replay, then both new scenarios with teaching and guided practice. Final summary scenario2: 400/200/300 allocation; all tutor completion flags true. |
+| money-garden-utilities | 18:26:00.707 | Returned succeeded, 10.801s. Details preserves progress; mute volume zero/restored; recenter preserves state and places content 115cm horizontally ahead/8cm below camera. |
+| money-garden-ik | 18:28:36.959 | Returned succeeded, 13.374s. IK avatar presses Start and Allocate through SIK; tutorial completed between these. Both IK routes are indirect, not proof of direct arm reach. |
 
-Authoritative log: `LensStudioLog-2026-11-06-17-15-49-758-8a1a4.txt`, `DefaultLeafScenarioManager` PASSED lines at the times above. Full replay began 17:55:29.892. Its final read-only snapshot and `MG_TEST_PASS replay` confirm completed learner state. The later `summaryView` pass at 18:01:33.031 (32.113s, native returned succeeded) is a single-completion gallery run and is not substituted for the full replay test.
+Authoritative log: `LensStudioLog-2026-11-06-17-15-49-758-8a1a4.txt`, matching `DefaultLeafScenarioManager` PASSED lines above. Final replay snapshot: summary/scenario2, allocated400/200/300, all three tutor completion flags true. Screenshot-only mode passes are not substituted for default acceptance results.
 
 ## Teaching correctness and state separation
 
@@ -26,15 +28,27 @@ Authoritative log: `LensStudioLog-2026-11-06-17-15-49-758-8a1a4.txt`, `DefaultLe
 - Logic demonstration uses the same TRUE/FALSE inputs to show AND closed, OR open, and why the stated purchase policy requires AND. Guided practice changes B to TRUE and runs AND. Independent tests cover every truth-table combination.
 - Teaching advances only through user input. Review enters a separate demo model and Return restores the learner's prior work, including a saved prediction. Decorative demonstration money remains visible but cannot be grabbed.
 
-## Compile, fixes and presentation
+## Custom UI and current-run diagnostics
 
-Native TypeScript compilation and runtime refresh succeeded after the final changes; welcome rendered and all eight scenarios registered without an application script exception. The test-only experimental 200ms replay pacing was reverted; source uses the original passing 300ms action wait. A screenshot-only summary mode was added without changing acceptance assertions.
+The final theme uses botanical chapter tabs, a sprout motif, teal cards, mint borders, gold primary actions/progress, inset explanatory notes, compact action surfaces and separate station headings/large values. Buttons retain their identity through layouts. The read-only test text helper concatenates visible label descendants in visual order to match the split plaques.
 
-The first tutor test incorrectly required the decorative income token to be hidden. Source inspection confirmed intentional visibility with disabled interaction; the assertion was corrected to check collider/Interactable disabled, and the complete tutor test passed. No tutor implementation failure was found in these runs.
+A4000-credit tax column initially overlapped explanatory feedback. All tax segments were proportionally reduced from.006 to.003cm/credit, and tray spacing from3 to2cm. Final2500,3000 and4000 captures show clear text with unchanged amounts; the parent visually approved maximum4000 clearance. Exact tax regression and full replay passed afterward.
 
-Earlier resolved defects remain fixed: persistent action-button identities prevent destruction during release; initialized/guarded audio cues prevent first-action exceptions. Plant support and dark label plaques were visually reviewed. Native package recovery is resolved: official Leaf2.0.2 / AiPreviewAgentInteract2.0.1, unchanged original SpectaclesInteractionKit/SpectaclesUIKit2.0.0 packages. No Cache or immutable testing-package source edits.
+An isolated `tutorLogicView` gallery run stalled hovering Try logic and timed out at60s. No application exception was logged. A DEBUG diagnostic run logged normal trigger/completion and passed at18:20:29; later full replay repeatedly crossed the same transition successfully. The original cause remains unproven, not claimed fixed.
 
-Clean actual-input Preview images: [budget teaching](screenshots/tutor-budget.png), [tax teaching](screenshots/tutor-tax.png), [logic teaching](screenshots/tutor-logic.png), [welcome](screenshots/welcome.png), [practice](screenshots/practice.png), [budget](screenshots/budget.png), [month](screenshots/month.png), [shortfall](screenshots/shortfall.png), [taxes](screenshots/taxes.png), [logic](screenshots/logic.png), [summary](screenshots/summary.png). Parent visually reviewed the teaching pages for readable text/controls and correct demonstrated values. Gallery uses no diagnostic overlay or IK avatar. These are editor images, not device recordings.
+Initial automatic IK routing failed at18:26:25: `[IK right (direct)] trigger "MG_allocate0": 14.5cm behind the shoulder.` Post-failure native inspection placed the final control105cm ahead of the camera, not behind it. The test now awaits the public avatar `ready` Promise and bounds the wait for the target to settle within the garden. Automatic routing remains enabled; the rerun passed18:28:36 using indirect routes. No forced strategy, fallback policy or product geometry change was used. Setup timing is a plausible explanation, not conclusively established.
+
+A supported20-second SIK hover check passed18:29:30, preserving target identity and lesson state. The parent qualitatively observed the brighter mint hover state on Try logic during diagnosis. Native screenshots queue behind the runner, so `hover.png` was captured after hover ended and **is not active-hover evidence**. A later optional runtime-style probe never reached Lens-side RUNS and had a bridge timeout; its unexecuted assertion was removed. Press/release functionality passes across the scenarios; a pressed-state frame was not independently verified.
+
+Native compile/runtime passed after restoring the reliable test source. Final save/export returns the project to welcome, no automatic tests and no diagnostic overlay. Transient LEAF state-save/material batching warnings remain; no application exception occurred in passing runs.
+
+## Screenshot provenance
+
+Current custom UI actual-input captures: [welcome](screenshots/welcome.png), [budget teaching](screenshots/tutor-budget.png), [tax teaching](screenshots/tutor-tax.png), [logic teaching](screenshots/tutor-logic.png), [practice](screenshots/practice.png), [month](screenshots/month.png), [taxes3000](screenshots/taxes.png), [tax maximum4000](screenshots/tax-maximum.png), [logic](screenshots/logic.png), [summary](screenshots/summary.png). Tax images use the corrected proportional scale. Summary is the actual final full-replay scenario2 state. Parent reviewed the key pages for clear copy, hierarchy and unclipped quantities.
+
+**Historical:** `budget.png` and `shortfall.png` still show the prior tutor-only UI, not the final theme. They are behavior evidence only; prefer current teaching/month images for the public gallery. `hover.png` is a post-hover welcome frame. All images are editor Preview captures, not device recordings.
+
+Official Leaf2.0.2/AiPreviewAgentInteract2.0.1 and original SIK/UIKit2.0.0 packages are unchanged. No Cache or immutable package edits.
 
 ## Remaining limits
 

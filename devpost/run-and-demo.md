@@ -21,6 +21,8 @@ Read `devpost/verification.md` for the tutor revision's acceptance results and l
 
 **Teach again** revisits the worked example without changing your allocations, predictions, or progress; return to continue your work. **Details** adds context. **Mute** controls sound. **Recenter** brings the world-space model back in front of you without resetting the lesson. **Restart** starts the current scenario again. Teaching has no forced timers.
 
+The custom field-guide interface uses chapter tabs to show the current topic, gold emphasis for the primary action, and a separate inset for teaching notes and feedback. Mint controls brighten on hover and use a gold border when pressed. Station plaques give numeric values more visual prominence than their headings. These cues supplement the written labels.
+
 ## Demonstration checks
 
 - Show the running Lens during the first ten seconds.

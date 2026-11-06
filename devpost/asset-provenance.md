@@ -6,6 +6,7 @@ Recorded November 6, 2026. Preserve original package notices when sharing the pr
 | --- | --- |
 | `Assets/GeneratedMeshes/MoneyGardenPlant.glb` | Generated for Money Garden using CLAD's SPECS mesh generation workflow. Imported and normalized to approximately 7.5 × 10 × 8.4 cm. |
 | Board, bowls, credits, tax columns, and logic paths | Project-authored runtime geometry in `MoneyGardenWorld.ts`, using Lens Studio MeshBuilder. |
+| Custom botanical interface | Project-authored composition and theme in `MoneyGardenPanelUI.ts`: chapter tabs, sprout mark, layered cards, station headings/values, and button states built with public SpectaclesUIKit rounded-rectangle and custom-visual APIs. The existing Inter font is reused and previously imported Material Symbols remain in the project. Text stays native Text rather than raster artwork. No substantial implementation was copied from the custom-visual example. |
 | `Assets/GeneratedSFX/Allocate.wav`, `Correct.wav`, `Retry.wav` | CLAD build-sfx presets waterDrop, uiSuccess, and a soft uiClick, with local filtering/mastering. Recipe: `Assets/Authoring/gen_money_garden_audio.cjs`. |
 | `Assets/GeneratedSFX/BackgroundMusic.wav` | CLAD build-music: F-major harmony, vibraphone/kalimba, 62 BPM, eight bars. Recipe is preserved in the same authoring script; its random seed was not recorded. |
 | `Assets/Fonts/Inter.ttf` | Imported through FontSelector. Embedded metadata identifies Inter 4.001, revision 66647c0bb, Rasmus Andersson and the Inter Project Authors. No font modification is claimed. |

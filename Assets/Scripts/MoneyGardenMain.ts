@@ -175,7 +175,7 @@ export class MoneyGardenMain extends BaseScriptComponent {
   }
   if(this.details&&!this.tutor.active){title='Why this matters';body=this.detailText();status=(s.stage==='tax'||s.stage==='taxPredict'||s.stage==='taxGuided'?'Practice rates - not a real tax schedule.':'Fictional learning exercises. No personal financial advice.')+'\nTap Details again to return.';}
 
-  this.guide.setCopy(title,body,status,progress);this.controls.setActions(rows);this.labels.setLabels(labels);this.labels.setVisible(labels.length>0);
+  this.guide.setCopy(title,body,status,progress);this.guide.setChapter(s.stage==='welcome'&&!this.tutor.active?-1:this.topicForStage()==='budget'?0:this.topicForStage()==='tax'?1:2,s.stage==='summary'&&!this.tutor.active);this.controls.setActions(rows);this.labels.setLabels(labels);this.labels.setVisible(labels.length>0);
 
   this.dock.setActions([[action('teachAgain','Teach again'),...(!this.tutor.active?[action('details',this.details?'Close':'Details','info')]:[]),action('mute',this.audio.muted?'Unmute':'Mute','sound'),action('recenter','Recenter','center'),action('restart','Restart')]]);
 

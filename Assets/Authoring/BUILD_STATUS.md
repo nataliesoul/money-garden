@@ -1,15 +1,11 @@
-# Money Garden tutor-first final checkpoint — 2026-11-06
+# Money Garden custom UI final checkpoint — 2026-11-06
 
-This supersedes the earlier question-first build. The Lens now teaches each topic with a user-paced spatial worked example, then guided practice, then an independent check. Teach again uses an isolated demo model and returns to unchanged learner work.
+Custom botanical UI is complete: teal field-guide panels, mint/gold interaction styling, chapter tabs/sprout, note inset, split heading/value plaques and compact actions. Tutor-first lesson/math/state behavior remains intact. Final tax height compression preserves proportions and clears the guide at4000.
 
-Eight default LEAF scenarios have authoritative PASSED evidence: tutor, practice, budget, tax, logic, replay, utilities, IK. Seven native calls returned succeeded. Full replay completed at125.823s after the120s transport timeout; matching Lens-side PASSED and final scenario2 summary confirm completion. See `devpost/verification.md` for exact times, coverage and distinction.
+Eight current-theme default scenarios have authoritative PASSED evidence. Seven native calls returned succeeded; full replay completed uninterrupted at126.702s after the120s transport timeout. See devpost/verification.md for times, source checkpoints and limits. Tax rerun/full replay/utilities/IK cover the final height correction; unaffected tutor/practice/budget/logic passed on the same theme beforehand.
 
-Native compilation and runtime refresh pass. Initial scene is welcome, tests do not auto-run, diagnostic overlay is hidden. Final native project save/export follows this checkpoint. Clean screenshots under `devpost/screenshots/` include tutor-budget, tutor-tax and tutor-logic.
+IK initially reported a direct-route shoulder failure. Awaiting public avatar ready and bounded target-layout readiness produced an indirect auto-route pass; no forced fallback. One gallery transition stalled and later diagnostic/full traversal passed; original cause remains unproven. Optional style probe had a bridge timeout before Lens RUNS and was removed. Supported hover identity/state check passed; mint hover visually observed, pressed-frame appearance unverified.
 
-New source: MoneyGardenTutor.ts. Teaching snapshots expose separate demo and learner state; answer/input controls are disabled until appropriate practice/check stages. Tax definitions and fictional-rate labels are visible. Actual SIK tests cover all tutorial pages, Back/Replay/Return, preserved allocations/predictions, guided steps, causal corrective feedback, token drag, conservation, tax arithmetic, all eight Boolean cases and replay across three scenarios.
+Native compile/runtime pass, final scene welcome/diagnostics hidden. Native save/export follows this checkpoint. Current screenshots include tutor3, practice, month, taxes, tax-maximum, logic, summary and welcome. budget.png/shortfall.png remain historical prior-theme images; hover.png is post-hover only.
 
-Package recovery/consent resolved. Leaf2.0.2 and AiPreviewAgentInteract2.0.1 preserve original SIK/UIKit2.0.0 packages. No immutable package/Cache edits. Prior button lifecycle/audio initialization fixes remain in place.
-
-Limits: Preview only; no physical Specs, direct reach/comfort/performance certification or audio listening. IK used indirect routes. Moving-camera recovery and two-hand manipulation were not explicitly tested. Native transient LEAF reset-state/material-batching warnings remain documented.
-
-No Lens publication or final hackathon submission is claimed by this checkpoint.
+Packages unchanged. No physical Specs, direct-reach/comfort/performance certification or audio listening assessment. Existing material batching/LEAF reset warnings remain documented. No final hackathon submission or Lens publication claimed.

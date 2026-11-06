@@ -30,6 +30,8 @@ The formal rules call planning docs optional, while the overview, submission for
 
 Official equally weighted judging categories: Design, Technical Implementation, Innovation/Idea, Presentation. The submission must address both the user's quality checklist and these official categories.
 
+Custom UI revision implemented November 6: botanical field-guide cards, custom button states, chapter tabs, a feedback inset, and larger station values. Eight actual-SIK scenarios have passing results for the custom interface; tax checks and full replay were repeated after correcting maximum-income column clearance. IK passed with automatic indirect routing after adding avatar and layout readiness waits. The report preserves the earlier reach failure and a non-reproduced gallery timeout rather than treating them as unexplained successes. Current screenshot evidence and visual-review limits are recorded in `verification.md`.
+
 ## Suggested demo sequence (target 2:40)
 
 - 0:00–0:10: show the active garden and identify the intended learner.
@@ -55,11 +57,11 @@ Native connection checks succeeded: ListAllPanels and ExecuteEditorCode. Loaded 
 
 ## Build and submission checkpoint — 2026-11-06
 
-The tutor-first revision adds default explanations, spatial worked examples, guided practice, and preservation of learner state during Teach again. All eight actual-SIK LEAF scenarios passed, superseding the earlier seven-scenario report. Native compilation/startup passed. Replay's 125.823-second run exceeded the tool response window but completed with an authoritative native LEAF pass and expected final state. Clean teaching screenshots are in `screenshots/tutor-budget.png`, `tutor-tax.png`, and `tutor-logic.png`.
+The tutor-first flow now uses the custom botanical interface while preserving explanations, spatial worked examples, guided practice, and learner state during Teach again. All eight actual-SIK LEAF scenarios have passing results for this UI revision; affected tax checks and full replay were repeated after correcting column clearance. Native compilation/startup passed. Final replay took 126.702 seconds, exceeding the tool response window but completing with an authoritative native LEAF pass and expected final state. Clean teaching screenshots are in `screenshots/tutor-budget.png`, `tutor-tax.png`, and `tutor-logic.png`.
 
 The public repository is https://github.com/nataliesoul/money-garden. It includes the native-exported scene/assets/manifest, the required original package archives, and the planning, demo, provenance, license, and verification documents. It excludes local credentials, signing keys, caches, and editor workspace files. Publication checks compare source/test/package files and metadata with the verified project before pushing.
 
-The Devpost draft is https://devpost.com/software/money-garden (project 1530579, submission 1285095), with a description, repository link, tutor thumbnail, and six gallery screenshots: three practice views and three tutor worked examples. It remains a Draft, not a submitted entry.
+The Devpost draft is https://devpost.com/software/money-garden (project 1530579, submission 1285095), with a description, repository link, custom-UI budget tutor thumbnail, and ten gallery screenshots. The latest four additions show the custom interface and corrected maximum-income tax layout; earlier images document the previous presentation. It remains a Draft, not a submitted entry.
 
 Remaining: a public YouTube demonstration under three minutes; the participant's questionnaire responses, creation-period/asset-use declarations, and rule/eligibility agreement. The private local worksheet is `Submission/participant-answers.md` and is excluded from the public repository. A timed narration is ready in `demo-narration.md`.
 

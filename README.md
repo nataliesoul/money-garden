@@ -4,6 +4,8 @@ A Specs AR tutor for a broad audience. Learn budgeting, progressive tax layers, 
 
 ![The Money Garden tutor demonstrates a reserve absorbing a surprise](devpost/screenshots/tutor-budget.png)
 
+The custom botanical interface uses teal gradient cards, mint chapter tabs, a sprout mark, gold teaching notes and primary actions, and larger values beside the garden models. Buttons respond visibly to hover and press. Native text and the existing SIK interaction system keep the presentation readable and responsive.
+
 ## Run
 
 Open `Learn_AR_with_Specs.esproj` in Lens Studio 5.24.1 or a compatible version, allow assets to import, and use the SPECS27 Interactive Preview. Select **Start growing** to meet the tutor. Mouse interaction simulates standard SIK pinch input.
@@ -14,7 +16,7 @@ During practice, **Teach again** replays the explanation using separate demonstr
 
 ## Verified behavior
 
-All eight LEAF acceptance scenarios passed for the tutor revision: tutor flow and state preservation, practice drag/drop, budgeting, tax arithmetic, all eight AND/OR cases, full replay across three scenarios, utility controls, and IK interaction. Native compilation and startup checks passed. Replay completed in 125.823 seconds, beyond the tool's 120-second response window; its authoritative LEAF pass and final state were verified in the native log. See [verification details](devpost/verification.md) for evidence and limits.
+All eight LEAF acceptance scenarios have passing results for the custom UI revision: tutor flow and state preservation, practice drag/drop, budgeting, tax arithmetic, all eight AND/OR cases, full replay across three scenarios, utility controls, and IK interaction. Tax checks and full replay were repeated after adjusting column clearance. Native compilation and startup checks passed. Replay completed in 126.702 seconds, beyond the tool's 120-second response window; its authoritative LEAF pass and final state were verified in the native log. The IK test now waits for avatar and control-layout readiness. See [verification details](devpost/verification.md) for results, earlier failed attempts, and limits.
 
 The IK check used **indirect/far-field interaction at 115 cm**. It does not prove direct arm reach, real-device comfort, or physical hand tracking. No hardware demonstration is claimed. The tabletop is virtual, not detected furniture; progress is within the current session.
 
