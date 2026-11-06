@@ -1,0 +1,73 @@
+- !<AssetImportMetadata/21ab1a16-0b2f-43fd-aedc-87eeff38ba4d>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 9587a64e-c61a-4c4f-9503-b769542c6fee
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 9587a64e-c61a-4c4f-9503-b769542c6fee
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 0e30955a-6c33-450f-88b4-7c2bfc6c566c
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/0e30955a-6c33-450f-88b4-7c2bfc6c566c>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: fadb078e-a1ca-4606-82cc-5cc7e4eaeb70
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    controls: false
+    debug: false
+    dock: false
+    gardenRoot: false
+    guide: false
+    labels: false
+    musicVolume: false
+    rescue: false
+    viewingDistance: false
+    world: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - guide: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      controls: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      labels: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      dock: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      rescue: !<MappingBased.AssignableType_5> 00000000-0000-0000-0000-000000000000
+      world: !<MappingBased.AssignableType_6> 00000000-0000-0000-0000-000000000000
+      gardenRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      musicVolume: 0.120000
+      viewingDistance: !<float> 115.000000
+      debug: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType_1 guide {"hint":"World-space lesson guide"}'
+    - '// @input AssignableType_2 controls {"hint":"Actions below the model"}'
+    - '// @input AssignableType_3 labels {"hint":"Labels adjacent to the active station"}'
+    - '// @input AssignableType_4 dock {"hint":"Utility controls"}'
+    - '// @input AssignableType_5 rescue {"hint":"Out-of-view recovery panel"}'
+    - '// @input AssignableType_6 world {"hint":"Spatial model controller"}'
+    - '// @input SceneObject gardenRoot {"hint":"All lesson content, moves as one unit"}'
+    - '// @input float musicVolume = 0.12 {"hint":"Quiet looping background volume", "widget":"slider", "min":0, "max":0.4, "step":0.01}'
+    - '// @input float viewingDistance = 115 {"hint":"Distance used by Recenter, in centimeters", "widget":"slider", "min":90, "max":150, "step":5}'
+    - '// @input bool debug = true {"hint":"Log read-only lesson state after every action"}'

@@ -1,0 +1,55 @@
+- !<AssetImportMetadata/56c5e532-d4f7-46a0-bc49-465e9beaf644>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 0495cc3f-ebb6-449d-a458-6a6512613ef1
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 0495cc3f-ebb6-449d-a458-6a6512613ef1
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 5dba2aeb-e175-4196-81a8-f2c2c1ac4992
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/5dba2aeb-e175-4196-81a8-f2c2c1ac4992>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 080eb6d8-f8cb-41d5-824f-6f0e1de6b821
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    height: false
+    ink: false
+    mode: false
+    width: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - mode: !<float> 0.000000
+      width: !<float> 48.000000
+      height: !<float> 17.000000
+      ink: !<Vec4> {x: 0.940000, y: 1.000000, z: 0.970000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input float mode {"hint":"0 lesson guide, 1 action deck, 2 spatial labels, 3 recovery dock"}'
+    - '// @input float width = 48 {"hint":"Panel width in centimeters"}'
+    - '// @input float height = 17 {"hint":"Panel height in centimeters"}'
+    - '// @input vec4 ink = {0.94,1,0.97,1} {"hint":"Bright primary text", "widget":"color"}'
