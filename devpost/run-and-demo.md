@@ -25,6 +25,12 @@ The custom field-guide interface uses chapter tabs to show the current topic, go
 
 ## Demonstration checks
 
+### Optional plain-language coach
+
+Use **Ask coach** to open the conversation panel. Select **Type a question**, enter a fictional example, finish the keyboard input and review the draft before pressing **Send**. **Suggest a question** prepares a lesson-specific draft. After a reply, ask a follow-up or use **Explain more simply** and Send. Use **More** and **Previous** to read longer replies. **Clear chat** clears the session conversation; **Back to garden** preserves the lesson. Cancel ignores late results locally. The coach needs internet access and configured credentials; see `coach-setup.md`. Keyboard and live-service verification limits are recorded in `verification.md`.
+
+### Recording requirements
+
 - Show the running Lens during the first ten seconds.
 - Include an uncut stretch of the actual flow; the video must show behavior, not only screenshots or a description.
 - Keep the full video below three minutes and publish it on YouTube.
@@ -42,6 +48,7 @@ The custom field-guide interface uses chapter tabs to show the current topic, go
 - `Assets/Scripts/MoneyGardenWorld.ts`: spatial model, token manipulation, and animation.
 - `Assets/Scripts/MoneyGardenPanelUI.ts`: UIKit labels, panels, and controls.
 - `Assets/Scripts/MoneyGardenAudio.ts`: music and feedback cues.
+- `Assets/Scripts/MoneyGardenCoach.ts`, `MoneyGardenCoachUI.ts`: optional contextual AI conversation and its custom panel.
 - `Assets/GeneratedMeshes`, `Assets/GeneratedSFX`, `Assets/Icons`, `Assets/Fonts`: imported presentation assets.
 - `devpost/design-brief.md`: approved design and acceptance criteria.
 - `devpost/learning-sources.md`: educational sources and fictional example definitions.

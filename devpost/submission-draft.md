@@ -20,6 +20,12 @@ The tax tutor defines taxable and retained income, then builds separate columns 
 
 The logic tutor defines true/false conditions and demonstrates AND and OR with the same inputs. A true and B false closes the AND gate but opens OR. Learners then practice, predict, and send pulses through the gate. The example purchasing policy requires both conditions, so AND implements it. A summary closes the three-lesson sequence, and three budget scenarios provide repeat practice.
 
+## Plain-language coach
+
+An optional **Ask coach** panel connects the current lesson to an AI conversation. Learners can prepare a question, review it and explicitly Send, ask follow-ups, or request a simpler explanation. Suggestions help start a conversation. The coach receives the visible worked example during teaching and the learner's fictional choices during practice. It cannot change lesson state. The custom panel provides readable response pages, cancellation, retry and Clear chat.
+
+Chat requires a network connection and configured Remote Service Gateway credentials. The public source deliberately excludes local tokens and documents setup. Questions, recent conversation and fictional context are sent to AI only on Send; the interface asks for fictional examples. Local conversation history is held in session memory. Current verification and Preview input limits are documented in `devpost/verification.md`; implementation alone is not proof of a successful live conversation.
+
 ## Why AR
 
 The model stays in world space after initialization or recentering. Money moves between destinations; its location and stacked quantity communicate allocation. Separate tax columns show where each rate applies. Converging input paths and an opening gate make Boolean conditions visible. Standard SIK manipulation and large UIKit controls provide direct interaction and a button alternative.

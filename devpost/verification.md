@@ -1,4 +1,26 @@
-# Money Garden custom UI verification
+# Money Garden verification
+
+## Plain-language coach revision — 2026-11-06
+
+The optional AI coach uses a custom panel, current displayed lesson context, bounded recent conversation and explicit Send through Remote Service Gateway. This section distinguishes verified live conversation from the remaining typed-input limitation. The earlier custom UI results below remain baseline evidence, not an assertion that every scenario was repeated after adding chat.
+
+- Actual SIK controls opened the modal, hid the underlying lesson targets and preserved the learner snapshot. The runtime-created deck exposed Type, Send, Suggest, Clear and Back correctly.
+- A genuine provider reply to a lesson-specific suggested question explained reserve in everyday language and cited the current 200-credit target. **Explain more simply → Send** produced a contextual simpler follow-up. No canned answer or test double was used.
+- `coachLive` PASSED at18:57:38.957 in36.172s. Actual pending Cancel and Clear were each followed by five seconds observing stale-response behavior. A subsequent genuine two-turn conversation changed history from one to two exchanges; Back, reopen and Clear preserved the exact500/300/100 learner plan. This is bounded observation, not proof of every network race.
+- Current replies fit one page. The implemented paging path was not exercised by those responses.
+- The existing practice, tutor and utilities scenarios passed on the current coach code. Practice completed at18:59:54.431 in9.869s; tutor at19:00:57.086 in47.386s; utilities at19:01:27.470 in11.005s. The earlier eight-scenario custom UI baseline remains below; tax, logic, replay and IK were not separately repeated solely for the coach addition.
+- After runner readiness recovered, `coachChecks` PASSED at19:02:09.331 in20.267s. Empty Send produced a visible error without history; suggestions remained unsent drafts; Clear/Back preserved500/300/100. Teaching context used the displayed demo500/300 while the learner stayed0/0, and returning restored the exact lesson. The final welcome screenshot was refreshed to include the six-control dock.
+- Clean Preview captures: [coach panel](screenshots/coach-modal.png), [live answer](screenshots/coach-answer.png), [simpler follow-up](screenshots/coach-followup.png). The parent visually reviewed the live answer for readability, complete text and correct example context. The interim imported-sample screenshot is excluded from publication.
+
+**Typing remains unverified on physical Specs.** Actual Type interaction followed by native text injection in SPECS 27 Preview did not update the draft. The initial legacy callback implementation was replaced with the installed public UIKit `SystemKeyboardModule`, which supports modern keyboard composition and paired-phone input; compilation/startup passed but SPECS 27 injection still did not deliver text. The documented system keyboard is unavailable in this Preview mode. Trying No Simulation did not yield a responsive SIK interaction path; original SPECS 27/Plane settings were restored. The successful suggested-question test must not be presented as proof of arbitrary free-form typing. A real device check is still required.
+
+The public source blanks all three local AI credential fields; setup and data handling are documented in `coach-setup.md`. No physical-device chat or voice conversation is claimed.
+
+Final native compile/runtime checks passed and the exact project was saved/exported at19:03:01, returning to welcome with diagnostics hidden. The private native ZIP has150entries and noCache entries. Local authentication stays in the working project; only the sanitized publication copy is shared. Known LEAF reset warnings remain. Offline, missing-authorization, response paging and physical keyboard behavior were not exercised; those paths are implemented, not certified by the listed tests.
+
+An initial `coachChecks` call timed out after60s before any Lens-side RUNS event. Logs showed a run request and scenario registration, not an executed assertion, so it is not a test pass or an application assertion failure. Re-listing the supported runner was followed by the three completed regression scenarios above.
+
+## Custom botanical UI baseline
 
 Verified 2026-11-06 in Lens Studio 5.24.1 Preview using native CLAD/LEAF. **This report describes the custom botanical UI revision and supersedes the earlier tutor-only verification.** All eight default scenarios have current UI PASSED evidence. Seven native calls returned succeeded; full replay exceeded the120-second transport limit but completed uninterrupted with Lens-side PASSED at126.702 seconds and the correct final snapshot.
 

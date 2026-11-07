@@ -1,6 +1,6 @@
 # Money Garden tutor demonstration script
 
-Target length: 2 minutes 40 seconds. Record the running Lens Studio Preview. Show the tutor teaching before showing questions. Capture the full lessons at a readable pace first, then edit between topics; keep at least one worked-example sequence uncut. Do not claim the edited video is a full first-time session.
+Target length: 2 minutes 55 seconds. Record the running Lens Studio Preview. Show the tutor teaching before showing questions. Capture the full lessons at a readable pace first, then edit between topics; keep at least one worked-example sequence uncut. Do not claim the edited video is a full first-time session. The coach segment demonstrates the verified suggested-question path; do not imply Preview keyboard typing was verified.
 
 ## 0:00–0:10 — the tutor is already visible
 
@@ -26,13 +26,19 @@ Cut to the logic teaching example, with A true and B false. Advance from AND to 
 
 “A condition is a statement that can be true or false. AND needs both conditions; OR accepts either or both. With one condition false, AND closes this gate and OR opens it. The lesson demonstrates both before asking me to apply a rule. This purchase policy requires both checks, so AND matches it.”
 
-## 2:05–2:25 — help without lost work, completion, repeat
+## 2:05–2:30 — plain-language live coach
+
+Open Ask coach, load Suggest a question and press Send. Show the actual reply, then Explain more simply and Send. Capture the real service response; never substitute a mock answer. If trimming waiting time, keep the edit visible rather than calling this segment uncut.
+
+“The optional AI coach explains the current example in everyday words. I review a question before sending it, and can ask for a simpler explanation. This live reply uses the lesson's fictional amounts. Typing is implemented, but still needs a device check because this Preview does not show the system keyboard.”
+
+## 2:30–2:42 — completion and repeat
 
 Show Teach again and return to the preserved practice state. Cut to the summary and choose New scenario.
 
-“Teach again lets me revisit an example without losing my work. The ending reviews three takeaways, and a new scenario changes the budget amounts. Explanations, retry, mute, and recenter support the whole experience.”
+“Returning preserves my work. The ending reviews three takeaways, and a new scenario changes the budget amounts.”
 
-## 2:25–2:40 — process and evidence
+## 2:42–2:55 — process and evidence
 
 “I planned Money Garden with Devpost Learn and built it using CLAD and native Lens Studio tools. The source includes the teaching content and interaction tests. This is Lens Studio Preview; comfort and real hand tracking still need hardware testing.”
 

@@ -1,3 +1,4 @@
+import {MoneyGardenCoach} from './MoneyGardenCoach';
 import {MoneyGardenPanelUI,GardenAction} from './MoneyGardenPanelUI';
 
 import {MoneyGardenWorld} from './MoneyGardenWorld';
@@ -37,8 +38,9 @@ export class MoneyGardenMain extends BaseScriptComponent {
 
  public state=new MoneyGardenState();public tutor=new MoneyGardenTutor();
 
- private audio!:MoneyGardenAudio;private ready=false;private details=false;private feedback='';private lastAction=-100;private lastId='';private checkTimer=0;
+ private coach!:MoneyGardenCoach;private audio!:MoneyGardenAudio;private ready=false;private details=false;private feedback='';private lastAction=-100;private lastId='';private checkTimer=0;
 
+ public getCoachSnapshot():string{return this.coach?this.coach.snapshot():'{}';}
  public getStateSnapshot():string{return JSON.stringify({...JSON.parse(this.state.snapshot()),stage:this.tutor.active?'tutor':this.state.stage,learnerStage:this.state.stage,tutor:this.tutor.snapshot()});}
 
  onAwake():void {
@@ -46,6 +48,7 @@ export class MoneyGardenMain extends BaseScriptComponent {
   this.createEvent('OnStartEvent').bind(()=>{if(!this.guide||!this.world||!this.gardenRoot){print('Money Garden: missing scene reference');return;}
 
    this.audio=new MoneyGardenAudio(this.sceneObject,this.musicVolume);
+   this.coach=new MoneyGardenCoach(this,this.gardenRoot,()=>{});
 
    [this.guide,this.controls,this.dock,this.rescue].forEach(ui=>ui.onAction.add(id=>this.handle(id)));
 
@@ -65,6 +68,8 @@ export class MoneyGardenMain extends BaseScriptComponent {
 
   const s=this.state;
 
+  if(id==='coach'){const displayed=this.tutor.active?this.tutor.demo:this.state,topic=this.topicForStage();const amounts=topic==='budget'?{monthlyAfterTaxIncome:displayed.scenario.income,essentialsNeed:displayed.scenario.essentials,reserveTarget:displayed.scenario.surprise,allocated:{essentials:displayed.allocated[0],reserve:displayed.allocated[1],choice:displayed.allocated[2]},unallocated:displayed.remaining,reserveAfterSurprise:displayed.savingsAfter}:topic==='tax'?{annualTaxableIncome:displayed.income,tax:tax(displayed.income),retained:displayed.income-tax(displayed.income),fictionalRates:'0% first1000;10% next1000;20% above2000'}:{conditionA:displayed.a,conditionB:displayed.b,operator:displayed.useAnd?'AND':'OR',gate:displayed.gate};const context=JSON.stringify({topic,mode:this.tutor.active?'worked example':'learner practice',lessonTitle:this.tutor.active?this.tutor.page.title:this.state.stage,explanation:this.tutor.active?this.tutor.page.body:'',amounts});this.coach.open(context,topic==='tax'?'Why does moving into a higher tax layer not tax all the income at that rate?':topic==='logic'?'Can you explain AND and OR using this garden?':'What is a reserve, and why do I need one in this example?',topic);return;}
+  if(this.coach.isOpen&&id!=='recenter')return;
   if(id==='recenter'){this.recenter();return;}
 
   if(id==='mute'){this.audio.toggle();this.render();return;}
@@ -138,7 +143,7 @@ export class MoneyGardenMain extends BaseScriptComponent {
 
  }
 
- private allocate(bin:number):void {if(!this.ready||this.tutor.active)return;if(bin<0){this.feedback='Token returned. Release near a bowl, or use Allocate.';this.audio.play('retry');this.render();return;}if(this.state.stage==='practice'&&bin!==0){this.feedback='Practice: use the Essentials bowl on the left.';this.render();return;}if(this.state.allocate(bin)){this.audio.play('allocate');this.feedback=this.state.stage==='practice'?'You moved 100 credits. The total stayed the same.':this.budgetCoach();}else this.feedback='No unallocated credits remain. Undo to change the plan.';this.render();}
+ private allocate(bin:number):void {if(!this.ready||this.tutor.active||this.coach?.isOpen)return;if(bin<0){this.feedback='Token returned. Release near a bowl, or use Allocate.';this.audio.play('retry');this.render();return;}if(this.state.stage==='practice'&&bin!==0){this.feedback='Practice: use the Essentials bowl on the left.';this.render();return;}if(this.state.allocate(bin)){this.audio.play('allocate');this.feedback=this.state.stage==='practice'?'You moved 100 credits. The total stayed the same.':this.budgetCoach();}else this.feedback='No unallocated credits remain. Undo to change the plan.';this.render();}
 
  private render():void {
 
@@ -177,7 +182,7 @@ export class MoneyGardenMain extends BaseScriptComponent {
 
   this.guide.setCopy(title,body,status,progress);this.guide.setChapter(s.stage==='welcome'&&!this.tutor.active?-1:this.topicForStage()==='budget'?0:this.topicForStage()==='tax'?1:2,s.stage==='summary'&&!this.tutor.active);this.controls.setActions(rows);this.labels.setLabels(labels);this.labels.setVisible(labels.length>0);
 
-  this.dock.setActions([[action('teachAgain','Teach again'),...(!this.tutor.active?[action('details',this.details?'Close':'Details','info')]:[]),action('mute',this.audio.muted?'Unmute':'Mute','sound'),action('recenter','Recenter','center'),action('restart','Restart')]]);
+  this.dock.setActions([[action('coach','Ask coach'),action('teachAgain','Teach again'),...(!this.tutor.active?[action('details',this.details?'Close':'Details','info')]:[]),action('mute',this.audio.muted?'Unmute':'Mute','sound'),action('recenter','Recenter','center'),action('restart','Restart')]]);
 
   this.world.show(visual,interactive);if(this.debug)print('MONEY_GARDEN_STATE '+this.getStateSnapshot());
 

@@ -1,6 +1,6 @@
 # Learning content and verification
 
-Reviewed 2026-11-06. All examples use fictional credits and practice tax rates. No personal financial information is collected.
+Reviewed 2026-11-06. All examples use fictional credits and practice tax rates. The lessons do not require personal financial information. Optional coach chat sends the learner's question, recent conversation and fictional lesson context to the AI service when Send is pressed. Use fictional details; see `coach-setup.md` for connection and privacy information.
 
 ## Budgeting
 
