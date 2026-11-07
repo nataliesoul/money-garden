@@ -1,6 +1,6 @@
 # Money Garden tutor demonstration script
 
-Target length: 2 minutes 55 seconds. Record the running Lens Studio Preview. Show the tutor teaching before showing questions. Capture the full lessons at a readable pace first, then edit between topics; keep at least one worked-example sequence uncut. Do not claim the edited video is a full first-time session. The coach segment demonstrates the verified suggested-question path; do not imply Preview keyboard typing was verified.
+Target length: 2 minutes 55 seconds. Record the running Lens Studio Preview. Show the tutor teaching before showing questions. Capture the full lessons at a readable pace first, then edit between topics; keep at least one worked-example sequence uncut. Do not claim the edited video is a full first-time session. The coach segment demonstrates the verified custom keyboard and genuine AI conversation.
 
 ## 0:00–0:10 — the tutor is already visible
 
@@ -28,9 +28,9 @@ Cut to the logic teaching example, with A true and B false. Advance from AND to 
 
 ## 2:05–2:30 — plain-language live coach
 
-Open Ask coach, load Suggest a question and press Send. Show the actual reply, then Explain more simply and Send. Capture the real service response; never substitute a mock answer. If trimming waiting time, keep the edit visible rather than calling this segment uncut.
+Open Ask coach, Type a question and use the custom keys to enter “Why save 200?” Select Done, then Send. Show the actual reply, then type “Use an example.” and Send. Capture the real service response; never substitute a mock answer. If trimming typing or waiting time, keep the edit visible rather than calling this segment uncut.
 
-“The optional AI coach explains the current example in everyday words. I review a question before sending it, and can ask for a simpler explanation. This live reply uses the lesson's fictional amounts. Typing is implemented, but still needs a device check because this Preview does not show the system keyboard.”
+“The optional AI coach explains ideas in everyday words. I can write my own question using this Preview keyboard, review it before sending, and ask follow-ups. The coach remembers our fictional example. Returning to the garden preserves my work.”
 
 ## 2:30–2:42 — completion and repeat
 

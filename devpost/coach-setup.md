@@ -20,8 +20,8 @@ Cancellation ignores a late response locally; it does not promise to withdraw a 
 
 ## Verification
 
-The live service answered a lesson-specific suggested question and a follow-up requesting simpler wording through actual Preview controls. This establishes live conversation for those inputs, not arbitrary typed input.
+The live service answered a lesson-specific suggested question and a simpler follow-up through actual Preview controls. The final custom keyboard also passed arbitrary character entry and a genuine two-turn conversation: **Why save 200?**, then **Use an example.** Done preserved the draft without sending; Send requested the live answer. No private text setter or canned response was used.
 
-The installed UIKit `SystemKeyboardModule` supplies the modern keyboard bridge and paired-phone compatibility. SPECS 27 Preview does not display the system keyboard; native text injection did not change the draft. A No Simulation attempt did not provide a working SIK test path, and the original SPECS 27 Preview configuration was restored. Free-form typing remains unverified on physical Specs. On-device validation must enter an original question, finish the keyboard input, Send, and receive a relevant answer before claiming the full typed path passed.
+The participant uses Preview only. **Type a question** therefore opens an in-Lens QWERTY keyboard with letters, numbers, punctuation, Shift, Space, Backspace, Clear and Done. Use Prev/Next to review long drafts. The native system keyboard and the attempted UIKit keyboard bridge were replaced after SPECS 27 Preview failed to deliver text. The final input path has no device-keyboard dependency. The original SPECS 27/Plane Preview settings are restored. Physical-device interaction and comfort remain untested.
 
-See `verification.md` for completed evidence. Compilation or successful credential setup alone does not establish that keyboard input works. Device behavior and Preview behavior are identified separately.
+See `verification.md` for completed evidence, including the earlier failed native-keyboard route and remaining limits. Device behavior and Preview behavior are identified separately.

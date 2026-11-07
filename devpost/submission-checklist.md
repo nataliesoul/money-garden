@@ -11,7 +11,7 @@ Deadline: **November 9, 2026, 5:00 p.m. America/New_York (EST)**.
 - [x] Working Specs Lens built through CLAD and native Lens Studio MCP.
 - [x] Tutor revision: native compile/startup and all eight LEAF scenarios passed after the user requested teaching before questions. Final evidence, replay transport-limit distinction, and hardware limits are recorded in `verification.md`.
 - [x] Optional coach: genuine lesson-specific AI answer and simpler follow-up verified through actual Preview controls; cancellation, clearing and preserved learner state checked.
-- [ ] Free-form coach typing verified on Specs. The modern UIKit keyboard bridge is implemented, but SPECS 27 Preview does not deliver keyboard text. Do not represent suggested-question success as a typed-input pass.
+- [x] Free-form coach chat verified in Preview: custom QWERTY letter/number/punctuation keys, Done without automatic send, live answer and independently typed follow-up. Physical Specs testing remains outside the verified scope.
 - [x] Public repository: https://github.com/nataliesoul/money-garden contains the Lens Studio project, required packages, and `devpost/` folder. Local credentials, signing keys, caches, and workspace settings were excluded.
 - [ ] Public YouTube video under three minutes showing the actual working Lens. Show the Lens within the first ten seconds and include an uncut sequence, following the November 6 organizer guidance.
 - [x] Devpost draft description covers the user, problem, functionality, spatial design, development lessons, and Devpost Learn/CLAD usage. Claims match Preview evidence and disclose hardware limits.
@@ -26,7 +26,7 @@ The formal rules call planning docs optional, while the overview, submission for
 | User criterion | Planned evidence |
 | --- | --- |
 | User experience | Explain → worked example → guided practice → prediction; user-paced Back/Next; Teach again preserving progress; contextual feedback and forgiving retries |
-| Optional coach | Plain-language current-lesson explanation, genuine follow-up, explicit Send, Clear and Back; distinguish the remaining device keyboard check |
+| Optional coach | Plain-language current-lesson explanation, Preview-compatible custom keyboard, genuine follow-up, explicit Send, Clear and Back; no hardware claim |
 | Completeness | Welcome → three tutor-led lessons → summary → replay/new scenario, with failure recovery |
 | Depth | World-space worked examples, direct manipulation, animated allocation/reserve depletion, progressive tax layers, logic simulation, supplemental audio |
 | Design and polish | Consistent art direction, readable additive-display UI, uncluttered stages, responsive highlighting, screenshots reviewed |
@@ -41,7 +41,7 @@ Custom UI revision implemented November 6: botanical field-guide cards, custom b
 - 0:10–0:55: uncut tutor example allocating the budget and showing the reserve absorb a surprise.
 - 0:55–1:30: show tax-layer teaching and the incremental worked example before practice.
 - 1:30–2:05: define conditions and contrast the tutor's AND/OR demonstrations before independent prediction.
-- 2:05–2:30: show a genuine suggested-question coach answer and simpler follow-up. State the Preview typing limit; use actual service replies.
+- 2:05–2:30: show custom-keyboard input, Done, Send and a genuine contextual follow-up. Use actual service replies.
 - 2:30–2:42: reach the summary and start a new scenario.
 - 2:42–2:55: briefly explain the design brief, CLAD build, and verified tests. Do not claim device testing without evidence.
 
@@ -65,7 +65,7 @@ The tutor-first flow now uses the custom botanical interface while preserving ex
 
 The public repository is https://github.com/nataliesoul/money-garden. It includes the native-exported scene/assets/manifest, the required original package archives, and the planning, demo, provenance, license, and verification documents. It excludes local credentials, signing keys, caches, and editor workspace files. Publication checks compare source/test/package files and metadata with the verified project before pushing.
 
-The Devpost draft is https://devpost.com/software/money-garden (project 1530579, submission 1285095), with a description, repository link, custom-UI budget tutor thumbnail, and ten gallery screenshots. The latest four additions show the custom interface and corrected maximum-income tax layout; earlier images document the previous presentation. It remains a Draft, not a submitted entry.
+The Devpost draft is https://devpost.com/software/money-garden (project 1530579, submission 1285095), with a description, repository link, custom-UI budget tutor thumbnail, and twelve gallery screenshots. Recent images show the custom interface, corrected maximum-income tax layout, a genuine live coach reply and the custom Preview keyboard; earlier images document the previous presentation. It remains a Draft, not a submitted entry.
 
 Remaining: a public YouTube demonstration under three minutes; the participant's questionnaire responses, creation-period/asset-use declarations, and rule/eligibility agreement. The private local worksheet is `Submission/participant-answers.md` and is excluded from the public repository. A timed narration is ready in `demo-narration.md`.
 

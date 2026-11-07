@@ -14,9 +14,9 @@ Each lesson follows **explanation → visible worked example → guided practice
 
 During practice, **Teach again** replays the explanation using separate demonstration state and returns to your preserved work. The sequence ends with three takeaways. Replay resets the current scenario; New scenario cycles through three solvable budgets. Details, mute, recenter, and restart remain available.
 
-**Ask coach** opens a plain-language AI conversation about the current lesson. Type a question or load a suggestion, then press **Send**. Follow-up questions retain recent conversation context; **Explain more simply** requests a simpler explanation. Replies have page controls when needed, and Back to garden preserves your work. The coach requires connectivity and your own development credentials in a public source copy; see [coach setup and privacy](devpost/coach-setup.md) and the verification report for tested behavior and Preview limitations.
+**Ask coach** opens a plain-language AI conversation about the current lesson. Choose **Type a question**, use the custom QWERTY keys, select **Done**, then **Send**. The keyboard works through normal Preview clicks/SIK controls and includes numbers, punctuation, Shift, Space, Backspace and draft pages. Suggestions are optional. Follow-up questions retain recent conversation context; **Explain more simply** requests a simpler explanation. Back to garden preserves your work. The coach requires connectivity and your own development credentials in a public source copy; see [coach setup and privacy](devpost/coach-setup.md).
 
-Live suggested-question and simpler-follow-up replies were verified. **Free-form typing still needs an on-device check:** SPECS 27 Preview does not show the system keyboard, and automated text injection did not update the draft. Do not treat the live suggestion test as proof of typed input.
+Free-form key entry and a genuine two-turn AI conversation passed in Preview: **Why save 200?** followed by **Use an example.** Done did not send automatically, and returning preserved the learner's budget. Native system keyboard limitations were resolved for Preview use by providing the custom keyboard; no physical-device testing is claimed.
 
 ## Verified behavior
 

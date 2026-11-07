@@ -12,7 +12,7 @@ Requested by the participant after the custom UI revision: "I want to be able to
 
 ## Interaction and presentation
 
-Typed input and suggested questions are the initial implementation default while the optional input preference is pending. Reuse the custom botanical presentation and supported SIK/UIKit interaction. Keep the garden and its current example available as the conversation's context.
+The participant confirmed they have Preview only, without Specs available. Provide a custom in-Lens keyboard for arbitrary questions through the same SIK controls as the garden. Include letters, numbers, punctuation, space, backspace and Done; completing a draft must not send it automatically. Suggested questions remain optional. Reuse the custom botanical presentation and supported SIK/UIKit interaction. Keep the garden and its current example available as the conversation's context.
 
 Show an editable draft and an explicit Send action. Explain briefly that questions are sent to AI and that fictional examples should be used. Show thinking, cancellation, retry, unavailable service and error states in plain language. Closing or clearing a conversation must prevent an old response from appearing in a new conversation.
 

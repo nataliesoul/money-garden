@@ -1,6 +1,6 @@
 # Money Garden
 
-Devpost draft: https://devpost.com/software/money-garden (project 1530579, hackathon submission 1285095). The latest gallery additions show the custom botanical tutor interface; the thumbnail shows the updated budget tutor. Earlier gallery images document the previous presentation. It has not been submitted. Personal reflections and eligibility declarations remain for the participant to supply.
+Devpost draft: https://devpost.com/software/money-garden (project 1530579, hackathon submission 1285095). The gallery includes the custom botanical tutor interface and an actual live AI coach reply; the thumbnail shows the budget tutor. Earlier gallery images document the previous presentation. It has not been submitted. Personal reflections and eligibility declarations remain for the participant to supply.
 
 ## Tagline
 
@@ -22,9 +22,9 @@ The logic tutor defines true/false conditions and demonstrates AND and OR with t
 
 ## Plain-language coach
 
-An optional **Ask coach** panel connects the current lesson to an AI conversation. Learners can prepare a question, review it and explicitly Send, ask follow-ups, or request a simpler explanation. Suggestions help start a conversation. The coach receives the visible worked example during teaching and the learner's fictional choices during practice. It cannot change lesson state. The custom panel provides readable response pages, cancellation, retry and Clear chat.
+An optional **Ask coach** panel connects the current lesson to an AI conversation. Learners write arbitrary questions using a custom Preview-compatible QWERTY keyboard, review them with Done and explicitly Send, then ask follow-ups or request a simpler explanation. Numbers, punctuation and draft pages support financial questions. Suggestions are optional. Actual key entry and a two-turn live conversation passed: “Why save200?” followed by “Use an example.” The coach receives the visible worked example during teaching and the learner's fictional choices during practice. It cannot change lesson state. The custom panel provides response pages, cancellation, retry and Clear chat.
 
-Chat requires a network connection and configured Remote Service Gateway credentials. The public source deliberately excludes local tokens and documents setup. Questions, recent conversation and fictional context are sent to AI only on Send; the interface asks for fictional examples. Local conversation history is held in session memory. Current verification and Preview input limits are documented in `devpost/verification.md`; implementation alone is not proof of a successful live conversation.
+Chat requires a network connection and configured Remote Service Gateway credentials. The public source deliberately excludes local tokens and documents setup. Questions, recent conversation and fictional context are sent to AI only on Send; the interface asks for fictional examples. Local conversation history is held in session memory. Verification and remaining hardware limits are documented in `devpost/verification.md`.
 
 ## Why AR
 

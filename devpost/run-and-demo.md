@@ -27,7 +27,7 @@ The custom field-guide interface uses chapter tabs to show the current topic, go
 
 ### Optional plain-language coach
 
-Use **Ask coach** to open the conversation panel. Select **Type a question**, enter a fictional example, finish the keyboard input and review the draft before pressing **Send**. **Suggest a question** prepares a lesson-specific draft. After a reply, ask a follow-up or use **Explain more simply** and Send. Use **More** and **Previous** to read longer replies. **Clear chat** clears the session conversation; **Back to garden** preserves the lesson. Cancel ignores late results locally. The coach needs internet access and configured credentials; see `coach-setup.md`. Keyboard and live-service verification limits are recorded in `verification.md`.
+Use **Ask coach** to open the conversation panel. Select **Type a question** and click the custom QWERTY keys. **123** opens numbers and punctuation; **ABC** returns to letters. **Shift**, **Space**, **Back** (backspace) and **Clear** edit the draft; Prev/Next review longer drafts. Select **Done**, then **Send**. Done never sends automatically. **Suggest a question** prepares an optional lesson-specific draft. After a reply, type a follow-up or use **Explain more simply** and Send. Use **More** and **Previous** to read longer replies. **Clear chat** clears the session conversation; **Back to garden** preserves the lesson. Cancel ignores late results locally. The coach needs internet access and configured credentials; see `coach-setup.md`. Actual free-form key entry and two-turn live replies passed in Preview; hardware interaction remains untested.
 
 ### Recording requirements
 
