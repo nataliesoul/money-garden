@@ -1,0 +1,76 @@
+- !<AssetImportMetadata/0c9ff0e4-a8ff-4328-8b4c-9087a232820f>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 264b09e9-3c70-479a-b37a-c1ee58c9201a
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 264b09e9-3c70-479a-b37a-c1ee58c9201a
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 02b66f1f-b12b-4c26-bbe2-c0aeee44779c
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/02b66f1f-b12b-4c26-bbe2-c0aeee44779c>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: fe28983c-e81d-4165-b8e4-8abb4b8b87fb
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    console: false
+    debug: false
+    intro: false
+    labels: false
+    machine: false
+    machineRoot: false
+    musicVolume: false
+    placement: false
+    trickleSeconds: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - console: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      labels: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      intro: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      placement: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      machine: !<MappingBased.AssignableType_5> 00000000-0000-0000-0000-000000000000
+      machineRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      musicVolume: 0.160000
+      trickleSeconds: !<float> 3.000000
+      debug: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"Cashfall / Main"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - '// @input AssignableType_1 console {"hint":"Lesson console in front of the machine"}'
+    - '// @input AssignableType_2 labels {"hint":"Value chips around the machine"}'
+    - '// @input AssignableType_3 intro {"hint":"Head-relative intro / rescue card"}'
+    - '// @input AssignableType_4 placement {"hint":"Surface placement + reticle"}'
+    - '// @input AssignableType_5 machine {"hint":"The money machine"}'
+    - '// @input SceneObject machineRoot {"hint":"World-locked root that holds the machine, console and labels"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float musicVolume = 0.16 {"hint":"Ambient music volume", "widget":"slider", "min":0, "max":0.5, "step":0.01}'
+    - '// @input float trickleSeconds = 3 {"hint":"Seconds of coin trickle after each tax change", "widget":"slider", "min":0, "max":6, "step":0.5}'
+    - '// @input bool debug = true {"hint":"Log a read-only state snapshot after every action"}'
+    - '// @ui {"widget":"group_end"}'

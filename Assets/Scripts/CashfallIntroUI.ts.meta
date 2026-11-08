@@ -1,0 +1,76 @@
+- !<AssetImportMetadata/ce91285b-42b2-4c50-826e-d3ae7a444fa5>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 2d392994-5135-49bb-af76-d56ad618ce35
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 2d392994-5135-49bb-af76-d56ad618ce35
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> ed3bf59d-0434-4ccd-af96-c266753cd810
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/ed3bf59d-0434-4ccd-af96-c266753cd810>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 34a89722-22fa-47e3-b879-c1bd7e73fb41
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    cyan: false
+    distance: false
+    drop: false
+    gold: false
+    ink: false
+    surface: false
+    tagline: false
+    title: false
+    width: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - width: !<float> 34.000000
+      distance: !<float> 95.000000
+      drop: !<float> 6.000000
+      title: CASHFALL
+      tagline: See where every dollar goes.
+      surface: !<Vec4> {x: 0.080000, y: 0.100000, z: 0.260000, w: 1.000000}
+      ink: !<Vec4> {x: 0.970000, y: 0.980000, z: 1.000000, w: 1.000000}
+      cyan: !<Vec4> {x: 0.360000, y: 0.860000, z: 1.000000, w: 1.000000}
+      gold: !<Vec4> {x: 1.000000, y: 0.780000, z: 0.300000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"Cashfall / Intro card"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float width = 38 {"hint":"Card width in centimeters", "widget":"slider", "min":24, "max":44, "step":1}'
+    - '// @input float distance = 95 {"hint":"Distance in front of the viewer, in centimeters", "widget":"slider", "min":60, "max":140, "step":5}'
+    - '// @input float drop = 6 {"hint":"Drop below eye line, in centimeters", "widget":"slider", "min":-10, "max":30, "step":1}'
+    - '// @input string title = "CASHFALL" {"hint":"Title copy"}'
+    - '// @input string tagline = "See where every dollar goes." {"hint":"Tagline copy"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Theme"}'
+    - '// @input vec4 surface = {0.08,0.1,0.26,1} {"hint":"Card surface", "widget":"color"}'
+    - '// @input vec4 ink = {0.97,0.98,1,1} {"hint":"Primary text", "widget":"color"}'
+    - '// @input vec4 cyan = {0.36,0.86,1,1} {"hint":"Cyan edge", "widget":"color"}'
+    - '// @input vec4 gold = {1,0.78,0.3,1} {"hint":"Gold accent", "widget":"color"}'
+    - '// @ui {"widget":"group_end"}'

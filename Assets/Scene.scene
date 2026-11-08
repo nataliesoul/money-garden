@@ -4,13 +4,13 @@
     - !<own> 00000000-0000-0065-0000-000000000064
     - !<own> 0005641c-028d-459a-0000-000000014b4d
     - !<own> f5d74682-203a-4970-81ea-9fa7b88c96bb
-    - !<own> e1124f05-ea87-458d-ad70-802dadca6498
-    - !<own> 3c83fbb3-d9a7-4304-8b34-09b3cd4d6a88
-    - !<own> 9886c445-97c3-4c93-b805-e89487d4f052
     - !<own> 6b3503b5-07bd-452b-9d3e-615ce6e30371
-    - !<own> c6147fce-1513-4e9f-9fc2-2af87e53695c
     - !<own> 682d211c-9431-4a88-a9c5-1b786ec099a4
-    - !<own> 55c90612-b240-4994-8b34-4b69c3892ecd
+    - !<own> 95ee2404-6b97-4d81-86d9-610a4a9ee2df
+    - !<own> e0001986-ca59-4b57-a5cb-429b612aed5d
+    - !<own> e1849f97-ec23-4bda-b3be-e4c46c4d6881
+    - !<own> cf88fef8-ca72-4d42-945b-565d57b3ffa0
+    - !<own> fcc81435-7a6b-4eed-9e56-528ec8e1bae7
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - id: 1
@@ -40,6 +40,7 @@
   Components:
     - !<own> 00000000-0000-0065-0000-000000000065
     - !<own> e5553c8a-0b7e-4ef4-92d9-3e1318fb82c1
+    - !<own> 11d88d38-f08c-4d0d-b833-ed0631258c50
 - !<Camera/00000000-0000-0065-0000-000000000065>
   PrefabRemaps:
     []
@@ -665,6 +666,11 @@
   ScriptTypes:
     "":
       {}
+- !<AudioListenerComponent/11d88d38-f08c-4d0d-b833-ed0631258c50>
+  PrefabRemaps:
+    []
+  Name: Audio Listener
+  Enabled: true
 - !<SceneObject/126f3577-bc27-4a20-8d6e-a511bc459c49>
   PrefabRemaps:
     []
@@ -744,51 +750,43 @@
     []
   Components:
     []
-- !<SceneObject/1e01bc0c-0844-4ae8-88a1-e9705814448e>
+- !<ScriptComponent/1c5aa42b-9054-4864-b665-7d27591ea553>
   PrefabRemaps:
     []
-  Name: BudgetStation
+  Name: CashfallLabelsUI
   Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 25.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> 895f5735-8bfb-4ed5-9f08-e54e2a771e4e
-    - !<own> bef5a3af-321e-42e9-a2ae-6e6fa4ad1b49
-    - !<own> ebc70c87-ad06-4ec9-8b21-637dc4754b52
-    - !<own> 2e80a321-60cb-46db-b1c0-5f74d610edf9
-  Components:
-    []
-- !<ScriptComponent/1f56936b-d4df-4e26-a496-bd988890e0a5>
-  PrefabRemaps:
-    []
-  Name: MoneyGardenMain
-  Enabled: true
-  ScriptAsset: !<reference> 9587a64e-c61a-4c4f-9503-b769542c6fee
+  ScriptAsset: !<reference> eb3295dc-7e2c-404e-a0c9-1f6d96e54e8c
   ScriptInputsDefault:
-    musicVolume: true
-    viewingDistance: true
-    debug: true
+    surface: true
+    ink: true
+    caption: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      guide: !<MappingBased.AssignableType_1> 93c823b9-4a24-4b26-a621-b83246fecd45
-      controls: !<MappingBased.AssignableType_2> 8407c1fa-886e-4371-88ae-0ecf791d69bd
-      labels: !<MappingBased.AssignableType_3> 54311fe7-5440-4a58-b510-14dd24e63d69
-      dock: !<MappingBased.AssignableType_4> 88b0a1b6-6eb0-46f8-95f8-c6aac5701273
-      rescue: !<MappingBased.AssignableType_5> f5b08225-1371-4bcf-a312-f2b399fd8ea6
-      world: !<MappingBased.AssignableType_6> d2dbce0b-00ad-4948-850a-5749b5d73dc0
-      gardenRoot: !<reference.SceneObject> e1124f05-ea87-458d-ad70-802dadca6498
-      musicVolume: 0.120000
-      viewingDistance: !<float> 115.000000
-      debug: true
+      surface: !<Vec4> {x: 0.080000, y: 0.100000, z: 0.260000, w: 1.000000}
+      ink: !<Vec4> {x: 0.970000, y: 0.980000, z: 1.000000, w: 1.000000}
+      caption: !<Vec4> {x: 0.800000, y: 0.860000, z: 0.950000, w: 1.000000}
+      titleSize: !<float> 28.000000
+      valueSize: !<float> 44.000000
   ScriptTypes:
     "":
       {}
+- !<SceneObject/1f879c18-480f-4e52-a124-b1561de24f60>
+  PrefabRemaps:
+    []
+  Name: Labels
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1c5aa42b-9054-4864-b665-7d27591ea553
 - !<RenderMeshVisual/1f969daa-5809-4500-b314-98d91ccba131>
   PrefabRemaps:
     []
@@ -1087,21 +1085,6 @@
     - !<own> a7da4af4-3d84-4acd-a31e-920a56b4c5c8
   Components:
     []
-- !<SceneObject/2e80a321-60cb-46db-b1c0-5f74d610edf9>
-  PrefabRemaps:
-    []
-  Name: IncomeToken
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 11.000000, z: 11.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    []
 - !<RenderMeshVisual/335c5f8b-2917-49e8-8af5-220696e9bc09>
   PrefabRemaps:
     []
@@ -1203,21 +1186,6 @@
     - !<own> 4051028a-c608-4a97-b3d5-1a3912a7c007
   Components:
     []
-- !<SceneObject/3856656d-24c5-4370-8939-b41b25df21a2>
-  PrefabRemaps:
-    []
-  Name: LessonGuide
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 22.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 93c823b9-4a24-4b26-a621-b83246fecd45
 - !<ScriptComponent/3a39ac32-41b0-44a2-8396-a0b32d435a99>
   PrefabRemaps:
     []
@@ -1295,21 +1263,6 @@
     - !<own> 54130007-65c1-48d3-b9df-0866d8112e01
   Components:
     []
-- !<SceneObject/3c83fbb3-d9a7-4304-8b34-09b3cd4d6a88>
-  PrefabRemaps:
-    []
-  Name: GardenRecovery
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: -15.000000, z: -85.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> f5b08225-1371-4bcf-a312-f2b399fd8ea6
 - !<SceneObject/3de2c7ea-1525-465a-9056-68565a4014a7>
   PrefabRemaps:
     []
@@ -1650,22 +1603,6 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
-- !<ScriptComponent/4f1dc6c5-b70e-4036-b08e-54ea473c6899>
-  PrefabRemaps:
-    []
-  Name: MoneyGardenLeafIndex
-  Enabled: true
-  ScriptAsset: !<reference> 362ae023-a491-4d61-a5d6-0c1a4299e500
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      {}
-  ScriptTypes:
-    "":
-      {}
 - !<Text/4fa4d6e0-29b4-4d9d-9a82-c1ac6b212d53>
   PrefabRemaps:
     []
@@ -1767,6 +1704,32 @@
     - !<own> c80074cf-5549-4edd-886a-e5e196c9e894
   Components:
     []
+- !<ScriptComponent/52de12ed-d5a4-4742-86bb-3969d14361d8>
+  PrefabRemaps:
+    []
+  Name: CashfallMain
+  Enabled: true
+  ScriptAsset: !<reference> 264b09e9-3c70-479a-b37a-c1ee58c9201a
+  ScriptInputsDefault:
+    musicVolume: true
+    trickleSeconds: true
+    debug: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      console: !<MappingBased.AssignableType_1> f002b98f-eaea-4af1-bd00-7da2fcbfdc6d
+      labels: !<MappingBased.AssignableType_2> 1c5aa42b-9054-4864-b665-7d27591ea553
+      intro: !<MappingBased.AssignableType_3> d7c619f2-d1f9-4bec-bc25-18f04d670f8c
+      placement: !<MappingBased.AssignableType_4> d8f2797f-9cf2-44e6-89d5-ef2dbe38b677
+      machine: !<MappingBased.AssignableType_5> b780c3b0-f749-44e4-a4a7-9e6849df882f
+      machineRoot: !<reference.SceneObject> e0001986-ca59-4b57-a5cb-429b612aed5d
+      musicVolume: 0.160000
+      trickleSeconds: !<float> 3.000000
+      debug: true
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/52ecefe4-5642-445a-ad16-52ce818076bc>
   PrefabRemaps:
     []
@@ -1814,50 +1777,6 @@
     - !<own> 46b79537-a269-46f1-9483-500d7a4170d6
   Components:
     []
-- !<ScriptComponent/54311fe7-5440-4a58-b510-14dd24e63d69>
-  PrefabRemaps:
-    []
-  Name: MoneyGardenPanelUI
-  Enabled: true
-  ScriptAsset: !<reference> 0495cc3f-ebb6-449d-a458-6a6512613ef1
-  ScriptInputsDefault:
-    ink: true
-    mint: true
-    gold: true
-    cornerRadius: true
-    typeScale: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      mode: !<float> 2.000000
-      width: !<float> 46.000000
-      height: !<float> 5.000000
-      ink: !<Vec4> {x: 0.940000, y: 1.000000, z: 0.970000, w: 1.000000}
-      panelTint: !<Vec4> {x: 0.015000, y: 0.320000, z: 0.300000, w: 1.000000}
-      mint: !<Vec4> {x: 0.420000, y: 0.960000, z: 0.750000, w: 1.000000}
-      gold: !<Vec4> {x: 1.000000, y: 0.760000, z: 0.340000, w: 1.000000}
-      cornerRadius: 1.150000
-      typeScale: !<float> 1.000000
-  ScriptTypes:
-    "":
-      {}
-- !<SceneObject/55c90612-b240-4994-8b34-4b69c3892ecd>
-  PrefabRemaps:
-    []
-  Name: AiPreviewAgent Handler
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 77964b1a-3b72-4c48-a5cb-86e777978e9e
-    - !<own> c0e202f1-b51e-4853-83c6-a98a71baff47
 - !<Text/573fe88c-f6bb-4574-aacc-7a4ae4882d98>
   PrefabRemaps:
     []
@@ -2415,7 +2334,7 @@
     - fac8a4e5-5210-4d88-b9e8-471f8b53cfdf: ec86f517-3980-4cbb-7cc1-d31aaff0b94b
     - fdb2d0ab-0e16-42ce-8f5f-7c32752318d0: 1f261436-b300-4217-4da4-0dfdc35be554
   Name: RemoteServiceGatewayExamples
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -2427,21 +2346,6 @@
     - !<own> 24f2f6f8-7cb7-447d-91a5-d83c1e111df2
     - !<own> 795c7b64-9d7a-4b68-af87-f3788edaaa6d
     - !<own> 4ce3c578-54de-46c3-bed9-3856436d8d13
-  Components:
-    []
-- !<SceneObject/699ae224-0a35-4f3e-b696-f91db97c5b26>
-  PrefabRemaps:
-    []
-  Name: GoalPlant
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 14.000000, y: 3.200000, z: -6.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
   Components:
     []
 - !<SceneObject/6a7a67db-5675-49bb-8f31-ba0588e3cffc>
@@ -2658,22 +2562,6 @@
     - !<own> 241be3d8-6f45-47d7-8b71-53778e375dc2
   Components:
     []
-- !<ScriptComponent/77964b1a-3b72-4c48-a5cb-86e777978e9e>
-  PrefabRemaps:
-    []
-  Name: AgentInspectScript
-  Enabled: true
-  ScriptAsset: !<reference> 0b25079c-f5bf-4c6d-96c4-f43b89dfa213
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      {}
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/77a79970-63f4-4c7c-984a-539d2ef0c92a>
   PrefabRemaps:
     []
@@ -2771,21 +2659,6 @@
     - !<own> 3b4f5057-b516-4d3b-9c8d-14c81af2f505
   Components:
     []
-- !<SceneObject/7cb9a88f-3492-465b-bd1b-19405f8e1c0b>
-  PrefabRemaps:
-    []
-  Name: ActionDeck
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: -11.000000, z: 9.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 8407c1fa-886e-4371-88ae-0ecf791d69bd
 - !<SceneObject/7e2075c6-0882-4275-8365-16a03da73298>
   PrefabRemaps:
     []
@@ -2907,35 +2780,6 @@
     - !<own> 08e3cc22-f2e1-49fb-9ddc-145fe6547ce3
   Components:
     []
-- !<ScriptComponent/8407c1fa-886e-4371-88ae-0ecf791d69bd>
-  PrefabRemaps:
-    []
-  Name: MoneyGardenPanelUI
-  Enabled: true
-  ScriptAsset: !<reference> 0495cc3f-ebb6-449d-a458-6a6512613ef1
-  ScriptInputsDefault:
-    width: true
-    ink: true
-    mint: true
-    gold: true
-    cornerRadius: true
-    typeScale: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      mode: !<float> 1.000000
-      width: !<float> 48.000000
-      height: !<float> 13.000000
-      ink: !<Vec4> {x: 0.940000, y: 1.000000, z: 0.970000, w: 1.000000}
-      panelTint: !<Vec4> {x: 0.015000, y: 0.320000, z: 0.300000, w: 1.000000}
-      mint: !<Vec4> {x: 0.420000, y: 0.960000, z: 0.750000, w: 1.000000}
-      gold: !<Vec4> {x: 1.000000, y: 0.760000, z: 0.340000, w: 1.000000}
-      cornerRadius: 1.150000
-      typeScale: !<float> 1.000000
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/857cf8d1-9ee4-429e-beb1-6b065a9020c7>
   PrefabRemaps:
     []
@@ -3069,35 +2913,6 @@
     - !<own> 1fc7fa3e-6910-4741-b8a7-1b6660a39a9d
   Components:
     - !<own> 28e05826-1521-46fa-a54c-80f2957ec80c
-- !<ScriptComponent/88b0a1b6-6eb0-46f8-95f8-c6aac5701273>
-  PrefabRemaps:
-    []
-  Name: MoneyGardenPanelUI
-  Enabled: true
-  ScriptAsset: !<reference> 0495cc3f-ebb6-449d-a458-6a6512613ef1
-  ScriptInputsDefault:
-    width: true
-    ink: true
-    mint: true
-    gold: true
-    cornerRadius: true
-    typeScale: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      mode: !<float> 1.000000
-      width: !<float> 48.000000
-      height: 6.400000
-      ink: !<Vec4> {x: 0.940000, y: 1.000000, z: 0.970000, w: 1.000000}
-      panelTint: !<Vec4> {x: 0.015000, y: 0.320000, z: 0.300000, w: 1.000000}
-      mint: !<Vec4> {x: 0.420000, y: 0.960000, z: 0.750000, w: 1.000000}
-      gold: !<Vec4> {x: 1.000000, y: 0.760000, z: 0.340000, w: 1.000000}
-      cornerRadius: 1.150000
-      typeScale: !<float> 1.000000
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/890368d4-4f2e-40f8-9c8e-0572ee612144>
   PrefabRemaps:
     []
@@ -3113,21 +2928,6 @@
     []
   Components:
     - !<own> 8fa419da-3971-4535-8d28-5d990b51feca
-- !<SceneObject/895f5735-8bfb-4ed5-9f08-e54e2a771e4e>
-  PrefabRemaps:
-    []
-  Name: Essentials
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: -15.000000, y: 0.000000, z: 2.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    []
 - !<Text/8b3f1ce6-474d-4aa1-8349-925716ef4933>
   PrefabRemaps:
     []
@@ -3268,21 +3068,6 @@
     - !<own> b859e31c-4c76-46bd-bd6a-042228e52728
   Components:
     []
-- !<SceneObject/8e299510-ab59-4c75-98d0-19be74330b71>
-  PrefabRemaps:
-    []
-  Name: MoneyGardenWorld
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> d2dbce0b-00ad-4948-850a-5749b5d73dc0
 - !<Text/8fa419da-3971-4535-8d28-5d990b51feca>
   PrefabRemaps:
     []
@@ -3416,37 +3201,6 @@
     - !<own> 297f2293-0d77-411d-9f98-f135a8fa8044
   Components:
     - !<own> e3225fb4-ee43-4c04-8f1b-2ce0448b5bc3
-- !<ScriptComponent/93c823b9-4a24-4b26-a621-b83246fecd45>
-  PrefabRemaps:
-    []
-  Name: MoneyGardenPanelUI
-  Enabled: true
-  ScriptAsset: !<reference> 0495cc3f-ebb6-449d-a458-6a6512613ef1
-  ScriptInputsDefault:
-    mode: true
-    width: true
-    height: true
-    ink: true
-    mint: true
-    gold: true
-    cornerRadius: true
-    typeScale: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      mode: !<float> 0.000000
-      width: !<float> 48.000000
-      height: !<float> 17.000000
-      ink: !<Vec4> {x: 0.940000, y: 1.000000, z: 0.970000, w: 1.000000}
-      panelTint: !<Vec4> {x: 0.015000, y: 0.320000, z: 0.300000, w: 1.000000}
-      mint: !<Vec4> {x: 0.420000, y: 0.960000, z: 0.750000, w: 1.000000}
-      gold: !<Vec4> {x: 1.000000, y: 0.760000, z: 0.340000, w: 1.000000}
-      cornerRadius: 1.150000
-      typeScale: !<float> 1.000000
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/9468c53c-f76f-49b7-8a49-b5ec6af1c5a3>
   PrefabRemaps:
     []
@@ -3479,10 +3233,10 @@
   ScriptTypes:
     "":
       {}
-- !<SceneObject/9886c445-97c3-4c93-b805-e89487d4f052>
+- !<SceneObject/95ee2404-6b97-4d81-86d9-610a4a9ee2df>
   PrefabRemaps:
     []
-  Name: MoneyGardenApp
+  Name: AiPreviewAgent Handler
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
@@ -3493,7 +3247,8 @@
   Children:
     []
   Components:
-    - !<own> 1f56936b-d4df-4e26-a496-bd988890e0a5
+    - !<own> eb0647a7-ad35-4524-b573-22d044e8498e
+    - !<own> ec067ebc-70a7-44fb-8a40-0fb9ad459fe4
 - !<SceneObject/988c408a-99dc-47e6-b7c4-efbf4bf8dc3c>
   PrefabRemaps:
     []
@@ -4164,6 +3919,27 @@
     - !<own> fcc185fc-4e88-4e9e-9c71-40bd83b1b0ed
   Components:
     []
+- !<ScriptComponent/b780c3b0-f749-44e4-a4a7-9e6849df882f>
+  PrefabRemaps:
+    []
+  Name: CashfallMachine
+  Enabled: true
+  ScriptAsset: !<reference> 568e6b26-5a45-41a0-b294-53d349ce7a07
+  ScriptInputsDefault:
+    coinPool: true
+    hopSeconds: true
+    debugColliders: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      coinPool: !<float> 20.000000
+      hopSeconds: 0.420000
+      debugColliders: false
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/b786dabc-29e4-4cfa-8a84-f39604ffcbdd>
   PrefabRemaps:
     []
@@ -4379,21 +4155,6 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
-- !<SceneObject/b99a0173-4589-4bf7-a154-b819d5cd25b0>
-  PrefabRemaps:
-    []
-  Name: LogicGate
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    []
 - !<SceneObject/bb75b5ea-8baf-4d8d-bcf8-49bd79873881>
   PrefabRemaps:
     []
@@ -4454,6 +4215,21 @@
     - !<own> fe93d992-1114-4f1f-8bef-0a0bbd75747d
   Components:
     []
+- !<SceneObject/bc50c671-bd57-4a6b-96aa-98341821fc23>
+  PrefabRemaps:
+    []
+  Name: Machine
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> b780c3b0-f749-44e4-a4a7-9e6849df882f
 - !<SceneObject/bd04ec9a-a9b1-4431-9a36-8dd93cbd79cf>
   PrefabRemaps:
     []
@@ -4502,21 +4278,6 @@
     - !<own> 5eb6ff53-b908-4bd7-82e0-320818fbf890
   Components:
     []
-- !<SceneObject/bef5a3af-321e-42e9-a2ae-6e6fa4ad1b49>
-  PrefabRemaps:
-    []
-  Name: SavingsReservoir
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 2.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    []
 - !<SceneObject/bf2095b6-c6f8-48c8-b840-e0a6cec0dc99>
   PrefabRemaps:
     []
@@ -4547,37 +4308,21 @@
     - !<own> a26741ff-8c2b-4956-8207-02894d54e28a
   Components:
     - !<own> 060a5e3f-28a1-47ad-a836-c1c3c0a83a01
-- !<ScriptComponent/c0e202f1-b51e-4853-83c6-a98a71baff47>
+- !<SceneObject/c0aa2059-8e62-45bd-9888-b491b7b942d8>
   PrefabRemaps:
     []
-  Name: AgentInteractScript
-  Enabled: true
-  ScriptAsset: !<reference> fb8c3bcf-6f67-4dc5-92cc-4ec1e8ed36d2
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      {}
-  ScriptTypes:
-    "":
-      {}
-- !<SceneObject/c6147fce-1513-4e9f-9fc2-2af87e53695c>
-  PrefabRemaps:
-    []
-  Name: MoneyGardenLeafIndex
+  Name: Console
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Position: {x: 0.000000, y: 6.500000, z: 27.000000}
+    Rotation: {x: -45.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
     []
   Components:
-    - !<own> 4f1dc6c5-b70e-4036-b08e-54ea473c6899
+    - !<own> f002b98f-eaea-4af1-bd00-7da2fcbfdc6d
 - !<SceneObject/c74cbf04-6b8e-4c80-8149-d81d110ebe18>
   PrefabRemaps:
     []
@@ -4593,21 +4338,6 @@
     []
   Components:
     - !<own> 3a39ac32-41b0-44a2-8396-a0b32d435a99
-- !<SceneObject/c766268b-9d5a-4d9f-9e5d-6faaec8ddadd>
-  PrefabRemaps:
-    []
-  Name: LogicStation
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 25.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> b99a0173-4589-4bf7-a154-b819d5cd25b0
-  Components:
-    []
 - !<SceneObject/c80074cf-5549-4edd-886a-e5e196c9e894>
   PrefabRemaps:
     []
@@ -4887,6 +4617,21 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
+- !<SceneObject/cf88fef8-ca72-4d42-945b-565d57b3ffa0>
+  PrefabRemaps:
+    []
+  Name: CashfallIntroCard
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -95.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d7c619f2-d1f9-4bec-bc25-18f04d670f8c
 - !<SceneObject/d08269e3-acd4-4156-b5b9-477ca259611d>
   PrefabRemaps:
     []
@@ -4902,33 +4647,6 @@
     - !<own> bb9036be-541f-49e7-9554-c297d354da21
   Components:
     []
-- !<ScriptComponent/d2dbce0b-00ad-4948-850a-5749b5d73dc0>
-  PrefabRemaps:
-    []
-  Name: MoneyGardenWorld
-  Enabled: true
-  ScriptAsset: !<reference> 57d8cedd-a355-4457-9db1-9d64eea04203
-  ScriptInputsDefault:
-    debugColliders: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
-      board: !<reference.SceneObject> d44dde05-35e0-45d2-8a40-a3c951ac99f2
-      budget: !<reference.SceneObject> 1e01bc0c-0844-4ae8-88a1-e9705814448e
-      essentials: !<reference.SceneObject> 895f5735-8bfb-4ed5-9f08-e54e2a771e4e
-      savings: !<reference.SceneObject> bef5a3af-321e-42e9-a2ae-6e6fa4ad1b49
-      wants: !<reference.SceneObject> ebc70c87-ad06-4ec9-8b21-637dc4754b52
-      source: !<reference.SceneObject> 2e80a321-60cb-46db-b1c0-5f74d610edf9
-      plant: !<reference.SceneObject> 699ae224-0a35-4f3e-b696-f91db97c5b26
-      taxes: !<reference.SceneObject> f808f3c9-3ca4-4c6c-989d-8b724ddd7f2e
-      logic: !<reference.SceneObject> c766268b-9d5a-4d9f-9e5d-6faaec8ddadd
-      gate: !<reference.SceneObject> b99a0173-4589-4bf7-a154-b819d5cd25b0
-      debugColliders: false
-  ScriptTypes:
-    "":
-      {}
 - !<ScriptComponent/d3e2fbc5-8795-4913-9af6-c8626f8e6d9c>
   PrefabRemaps:
     []
@@ -4945,21 +4663,6 @@
   ScriptTypes:
     "":
       {}
-- !<SceneObject/d44dde05-35e0-45d2-8a40-a3c951ac99f2>
-  PrefabRemaps:
-    []
-  Name: Board
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 25.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    []
 - !<SceneObject/d4a9c5e3-fe96-4824-9b20-59f5ad39eabd>
   PrefabRemaps:
     []
@@ -4994,6 +4697,38 @@
     - !<own> bbcbfc17-8d65-4333-bce1-6f7239f690b8
   Components:
     []
+- !<ScriptComponent/d7c619f2-d1f9-4bec-bc25-18f04d670f8c>
+  PrefabRemaps:
+    []
+  Name: CashfallIntroUI
+  Enabled: true
+  ScriptAsset: !<reference> 2d392994-5135-49bb-af76-d56ad618ce35
+  ScriptInputsDefault:
+    width: true
+    distance: true
+    drop: true
+    title: true
+    tagline: true
+    surface: true
+    ink: true
+    cyan: true
+    gold: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      width: !<float> 34.000000
+      distance: !<float> 95.000000
+      drop: !<float> 6.000000
+      title: CASHFALL
+      tagline: See where every dollar goes.
+      surface: !<Vec4> {x: 0.080000, y: 0.100000, z: 0.260000, w: 1.000000}
+      ink: !<Vec4> {x: 0.970000, y: 0.980000, z: 1.000000, w: 1.000000}
+      cyan: !<Vec4> {x: 0.360000, y: 0.860000, z: 1.000000, w: 1.000000}
+      gold: !<Vec4> {x: 1.000000, y: 0.780000, z: 0.300000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/d87467f8-43c9-4e1d-a3f3-367a0e26bc93>
   PrefabRemaps:
     []
@@ -5010,6 +4745,29 @@
     - !<own> 003acb38-897c-48c4-9d3e-380307f0b5cf
   Components:
     []
+- !<ScriptComponent/d8f2797f-9cf2-44e6-89d5-ef2dbe38b677>
+  PrefabRemaps:
+    []
+  Name: CashfallPlacement
+  Enabled: true
+  ScriptAsset: !<reference> 3f3daa20-e965-4645-9a69-29ca9461fdc4
+  ScriptInputsDefault:
+    reticleRadius: true
+    maxRay: true
+    maxTiltDegrees: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      reticleRadius: !<float> 11.000000
+      maxRay: !<float> 400.000000
+      fallbackDistance: !<float> 115.000000
+      fallbackDrop: !<float> 38.000000
+      maxTiltDegrees: !<float> 35.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/d9071294-12e8-425f-98f1-bf308a02639e>
   PrefabRemaps:
     []
@@ -5118,6 +4876,23 @@
     - !<own> 857cf8d1-9ee4-429e-beb1-6b065a9020c7
   Components:
     - !<own> ac81b280-c780-4f89-8476-aeb2aa1a5b38
+- !<SceneObject/e0001986-ca59-4b57-a5cb-429b612aed5d>
+  PrefabRemaps:
+    []
+  Name: CashfallMachineRoot
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -40.000000, z: -110.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> bc50c671-bd57-4a6b-96aa-98341821fc23
+    - !<own> 1f879c18-480f-4e52-a124-b1561de24f60
+    - !<own> c0aa2059-8e62-45bd-9888-b491b7b942d8
+  Components:
+    []
 - !<SceneObject/e0e1dee5-082c-4fe5-bb99-a7d3505dc3f4>
   PrefabRemaps:
     []
@@ -5153,30 +4928,6 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<SceneObject/e1124f05-ea87-458d-ad70-802dadca6498>
-  PrefabRemaps:
-    []
-  Name: MoneyGarden
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: -15.000000, z: -115.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> d44dde05-35e0-45d2-8a40-a3c951ac99f2
-    - !<own> 1e01bc0c-0844-4ae8-88a1-e9705814448e
-    - !<own> 699ae224-0a35-4f3e-b696-f91db97c5b26
-    - !<own> f808f3c9-3ca4-4c6c-989d-8b724ddd7f2e
-    - !<own> c766268b-9d5a-4d9f-9e5d-6faaec8ddadd
-    - !<own> 3856656d-24c5-4370-8939-b41b25df21a2
-    - !<own> 7cb9a88f-3492-465b-bd1b-19405f8e1c0b
-    - !<own> ec5b7451-ede9-4ccd-ba0a-03ad22385dfa
-    - !<own> f888d658-f03a-4a60-8953-e27fb2e053f2
-    - !<own> 8e299510-ab59-4c75-98d0-19be74330b71
-  Components:
-    []
 - !<Text/e14994aa-123c-4f7b-bc02-75eb8f18598e>
   PrefabRemaps:
     []
@@ -5262,6 +5013,21 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
+- !<SceneObject/e1849f97-ec23-4bda-b3be-e4c46c4d6881>
+  PrefabRemaps:
+    []
+  Name: CashfallPlacement
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d8f2797f-9cf2-44e6-89d5-ef2dbe38b677
 - !<SceneObject/e2ba526d-75d1-466b-86a5-9cd7c42dca84>
   PrefabRemaps:
     []
@@ -5496,36 +5262,71 @@
     Fingers_length: 0.000000
     Thumb_inflate: 0.000000
     Thumb_length: 0.000000
-- !<SceneObject/ebc70c87-ad06-4ec9-8b21-637dc4754b52>
+- !<ScriptComponent/eb0647a7-ad35-4524-b573-22d044e8498e>
   PrefabRemaps:
     []
-  Name: YourChoice
+  Name: AgentInspectScript
   Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 15.000000, y: 0.000000, z: 2.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    []
-- !<SceneObject/ec5b7451-ede9-4ccd-ba0a-03ad22385dfa>
+  ScriptAsset: !<reference> 0b25079c-f5bf-4c6d-96c4-f43b89dfa213
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/ec067ebc-70a7-44fb-8a40-0fb9ad459fe4>
   PrefabRemaps:
     []
-  Name: StationLabels
+  Name: AgentInteractScript
   Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: -1.500000, z: 18.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
+  ScriptAsset: !<reference> fb8c3bcf-6f67-4dc5-92cc-4ec1e8ed36d2
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/f002b98f-eaea-4af1-bd00-7da2fcbfdc6d>
+  PrefabRemaps:
     []
-  Components:
-    - !<own> 54311fe7-5440-4a58-b510-14dd24e63d69
+  Name: CashfallConsoleUI
+  Enabled: true
+  ScriptAsset: !<reference> f0ea71e8-574b-4707-87fc-96038301ff8d
+  ScriptInputsDefault:
+    buttonHeight: true
+    typeScale: true
+    surface: true
+    ink: true
+    cyan: true
+    gold: true
+    mint: true
+    coral: true
+    cornerRadius: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      width: !<float> 44.000000
+      buttonHeight: 4.100000
+      typeScale: !<float> 1.000000
+      surface: !<Vec4> {x: 0.080000, y: 0.100000, z: 0.260000, w: 1.000000}
+      ink: !<Vec4> {x: 0.970000, y: 0.980000, z: 1.000000, w: 1.000000}
+      cyan: !<Vec4> {x: 0.360000, y: 0.860000, z: 1.000000, w: 1.000000}
+      gold: !<Vec4> {x: 1.000000, y: 0.780000, z: 0.300000, w: 1.000000}
+      mint: !<Vec4> {x: 0.450000, y: 0.950000, z: 0.650000, w: 1.000000}
+      coral: !<Vec4> {x: 1.000000, y: 0.450000, z: 0.500000, w: 1.000000}
+      cornerRadius: 1.600000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/f0394c5d-4c44-4c65-a77c-e1c7e05ca905>
   PrefabRemaps:
     []
@@ -5557,34 +5358,6 @@
   Components:
     - !<own> d3e2fbc5-8795-4913-9af6-c8626f8e6d9c
     - !<own> 275aeb4d-77ac-4b1b-811e-907652542110
-- !<ScriptComponent/f5b08225-1371-4bcf-a312-f2b399fd8ea6>
-  PrefabRemaps:
-    []
-  Name: MoneyGardenPanelUI
-  Enabled: true
-  ScriptAsset: !<reference> 0495cc3f-ebb6-449d-a458-6a6512613ef1
-  ScriptInputsDefault:
-    ink: true
-    mint: true
-    gold: true
-    cornerRadius: true
-    typeScale: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      mode: !<float> 3.000000
-      width: !<float> 26.000000
-      height: 6.400000
-      ink: !<Vec4> {x: 0.940000, y: 1.000000, z: 0.970000, w: 1.000000}
-      panelTint: !<Vec4> {x: 0.015000, y: 0.320000, z: 0.300000, w: 1.000000}
-      mint: !<Vec4> {x: 0.420000, y: 0.960000, z: 0.750000, w: 1.000000}
-      gold: !<Vec4> {x: 1.000000, y: 0.760000, z: 0.340000, w: 1.000000}
-      cornerRadius: 1.150000
-      typeScale: !<float> 1.000000
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/f5d74682-203a-4970-81ea-9fa7b88c96bb>
   PrefabRemaps:
     - 012a3973-9507-4230-a6ff-2b8dfd2154fe: e3ec5982-f5aa-45f3-4551-4d3a92a1f432
@@ -5791,36 +5564,6 @@
     - !<own> a7526b33-fca3-4f28-8e32-b0e9aa13c4b4
   Components:
     []
-- !<SceneObject/f808f3c9-3ca4-4c6c-989d-8b724ddd7f2e>
-  PrefabRemaps:
-    []
-  Name: TaxStation
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 25.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    []
-- !<SceneObject/f888d658-f03a-4a60-8953-e27fb2e053f2>
-  PrefabRemaps:
-    []
-  Name: UtilityDock
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: -22.000000, z: 9.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 88b0a1b6-6eb0-46f8-95f8-c6aac5701273
 - !<AudioComponent/fac8a4e5-5210-4d88-b9e8-471f8b53cfdf>
   PrefabRemaps:
     []
@@ -5853,6 +5596,21 @@
     - !<own> 2dae2a27-8ce6-466a-8bff-622195c1b3a8
   Components:
     []
+- !<SceneObject/fcc81435-7a6b-4eed-9e56-528ec8e1bae7>
+  PrefabRemaps:
+    []
+  Name: CashfallApp
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 52de12ed-d5a4-4742-86bb-3969d14361d8
 - !<ScriptComponent/fdb2d0ab-0e16-42ce-8f5f-7c32752318d0>
   PrefabRemaps:
     []

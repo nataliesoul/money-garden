@@ -24,7 +24,7 @@ ls-live-instance.json.tmp
 .env.*
 !.env.example
 /Submission/
-/devpost/MoneyGarden-project.zip
+/.virtual-scene.json
 
 # Added by Lens Studio (LEAF plugin)
 leaf_plugin_settings.json

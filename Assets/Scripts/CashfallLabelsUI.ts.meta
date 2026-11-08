@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/c24dcaa3-df02-4e33-bb38-904e072ecc5c>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> eb3295dc-7e2c-404e-a0c9-1f6d96e54e8c
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> eb3295dc-7e2c-404e-a0c9-1f6d96e54e8c
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 7aea5b22-d421-49f2-8a1a-51936510167f
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/7aea5b22-d421-49f2-8a1a-51936510167f>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 7c42d469-6419-4769-ac22-6d948aefbbbb
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    caption: false
+    ink: false
+    surface: false
+    titleSize: false
+    valueSize: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - surface: !<Vec4> {x: 0.080000, y: 0.100000, z: 0.260000, w: 1.000000}
+      ink: !<Vec4> {x: 0.970000, y: 0.980000, z: 1.000000, w: 1.000000}
+      caption: !<Vec4> {x: 0.800000, y: 0.860000, z: 0.950000, w: 1.000000}
+      titleSize: !<float> 24.000000
+      valueSize: !<float> 40.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"Cashfall / Labels"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Theme"}'
+    - '// @input vec4 surface = {0.08,0.1,0.26,1} {"hint":"Chip surface", "widget":"color"}'
+    - '// @input vec4 ink = {0.97,0.98,1,1} {"hint":"Primary text", "widget":"color"}'
+    - '// @input vec4 caption = {0.8,0.86,0.95,1} {"hint":"Caption text", "widget":"color"}'
+    - '// @input float titleSize = 24 {"hint":"Title size", "widget":"slider", "min":18, "max":40, "step":1}'
+    - '// @input float valueSize = 40 {"hint":"Value size", "widget":"slider", "min":28, "max":60, "step":1}'
+    - '// @ui {"widget":"group_end"}'

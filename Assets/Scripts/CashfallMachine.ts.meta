@@ -1,0 +1,59 @@
+- !<AssetImportMetadata/c78e4677-855a-4859-820c-ffe019d7a113>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 568e6b26-5a45-41a0-b294-53d349ce7a07
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 568e6b26-5a45-41a0-b294-53d349ce7a07
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 8ad92f4d-075c-443b-8167-1ac43d3c4b71
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/8ad92f4d-075c-443b-8167-1ac43d3c4b71>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 5e4d78eb-456d-47ba-9760-2d4c98fc80f6
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    coinPool: false
+    debugColliders: false
+    hopSeconds: false
+    material: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - material: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      coinPool: !<float> 20.000000
+      hopSeconds: 0.420000
+      debugColliders: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"Cashfall / Machine"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input Asset.Material material {"hint":"Unlit vertex-color material shared by all generated geometry"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float coinPool = 20 {"hint":"Coins in flight at once", "widget":"slider", "min":8, "max":32, "step":1}'
+    - '// @input float hopSeconds = 0.42 {"hint":"Seconds a coin takes per terrace hop", "widget":"slider", "min":0.2, "max":0.8, "step":0.05}'
+    - '// @input bool debugColliders {"hint":"Draw the grab collider for the basin coin"}'
+    - '// @ui {"widget":"group_end"}'

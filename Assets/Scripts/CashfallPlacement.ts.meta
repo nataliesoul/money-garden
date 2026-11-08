@@ -1,0 +1,65 @@
+- !<AssetImportMetadata/9d751c6a-6bef-402e-a1ff-3318a46589b8>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 3f3daa20-e965-4645-9a69-29ca9461fdc4
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 3f3daa20-e965-4645-9a69-29ca9461fdc4
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 14f76839-dbdc-418d-8297-2d9bce6c70d0
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/14f76839-dbdc-418d-8297-2d9bce6c70d0>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 8de0bb54-8982-4587-add4-70b1ae379c20
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    fallbackDistance: false
+    fallbackDrop: false
+    material: false
+    maxRay: false
+    maxTiltDegrees: false
+    reticleRadius: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - material: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      reticleRadius: !<float> 11.000000
+      maxRay: !<float> 400.000000
+      fallbackDistance: !<float> 105.000000
+      fallbackDrop: !<float> 42.000000
+      maxTiltDegrees: !<float> 35.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"Cashfall / Placement"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input Asset.Material material {"hint":"Unlit vertex-color material shared by all generated geometry"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float reticleRadius = 11 {"hint":"Reticle radius in centimeters", "widget":"slider", "min":6, "max":20, "step":1}'
+    - '// @input float maxRay = 400 {"hint":"Longest hit-test ray in centimeters", "widget":"slider", "min":150, "max":600, "step":10}'
+    - '// @input float fallbackDistance = 105 {"hint":"Fallback distance in front of the viewer, in centimeters", "widget":"slider", "min":70, "max":160, "step":5}'
+    - '// @input float fallbackDrop = 42 {"hint":"Fallback drop below eye height, in centimeters", "widget":"slider", "min":0, "max":80, "step":5}'
+    - '// @input float maxTiltDegrees = 35 {"hint":"Reject surfaces steeper than this many degrees from horizontal", "widget":"slider", "min":10, "max":60, "step":5}'
+    - '// @ui {"widget":"group_end"}'

@@ -1,46 +1,30 @@
-# Learning content and verification
+# Learning content and sources
 
-Reviewed 2026-11-06. All examples use fictional credits and practice tax rates. The lessons do not require personal financial information. Optional coach chat sends the learner's question, recent conversation and fictional lesson context to the AI service when Send is pressed. Use fictional details; see `coach-setup.md` for connection and privacy information.
+Cashfall teaches three ideas with concrete, fictional numbers. Nothing here is financial or tax advice.
 
-## Budgeting
+## Taxes: marginal steps
 
-Consumer.gov explains a budget as a plan for income and spending, including saving for goals and emergencies. Money Garden represents allocation explicitly and preserves the total; it does not prescribe a universal budget percentage.
+- Practice brackets (monthly): 0% on the first $1,000, 10% from $1,000 to $3,000, 20% above $3,000. These are teaching rates, not any real schedule.
+- Worked example (scenario 1): gross $4,000 → $0 + $200 + $200 = $400 tax, $3,600 take-home, 10% effective rate, 20% top (marginal) rate.
+- Myth check: a $500 raise from $4,000 lands entirely on the 20% step. Tax rises $100, take-home rises $400. A raise never lowers take-home under a marginal system because only the new dollars are taxed at the higher rate.
+- Vocabulary: marginal rate (the step your last dollar lands on), effective rate (total tax divided by total pay).
 
-https://consumer.gov/your-money/making-budget
+## Budget: needs, cushion, wants
 
-## Emergency reserves
+- Take-home is split into ten equal coins. The 50 / 30 / 20 guide (needs / wants / savings) is a common starting rule, shown as rings, never enforced.
+- Each scenario fixes a needs floor (rent, food, bills) and a surprise bill. Running the month pays needs first, then takes the surprise from SAVE, then from WANTS, and reports anything uncovered.
+- Growth reveal: future value of a monthly contribution with monthly compounding, FV = P × ((1 + r/12)^(12n) − 1) / (r/12), at 5% for 10 years. $720 a month → about $111,800, of which $86,400 was contributed.
 
-The CFPB describes an emergency fund as money reserved for unexpected costs and notes that the amount depends on individual circumstances. The lesson's reserve target is a disclosed scenario constraint, not a recommendation for everyone.
+## Logic: AND versus OR
 
-https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/
+- Condition A: needs are covered (NEEDS ≥ the needs floor). Condition B: SAVE minus the purchase price still meets the cushion.
+- AND opens only when both are true; OR opens when either is true. All eight rows (two operators × four input combinations) can be discovered with the override toggles.
+- The policy "both checks must pass" is an AND. OR would let a purchase through with needs uncovered or the cushion drained.
 
-## Progressive tax layers
+## Scenarios
 
-The IRS explains that higher bracket rates apply to income in the higher bracket, rather than retroactively to all income. The tutor teaches that concept using explicitly fictional rates and thresholds. It does not calculate actual liability or model benefits, withholding, payroll taxes, deductions, or credits.
-
-https://www.irs.gov/filing/federal-income-tax-rates-and-brackets
-
-Practice formula for nonnegative taxable income x:
-
-`tax(x) = 0.10 * min(max(x - 1000, 0), 1000) + 0.20 * max(x - 2000, 0)`
-
-Expected checkpoints: x=0 → tax 0; x=1000 → 0; x=1500 → 50; x=2000 → 100; x=2500 → 200; x=3000 → 300. Retained income equals x minus tax. These are content specifications, not executed software-test results.
-
-## Boolean logic
-
-| A | B | A AND B | A OR B |
-| --- | --- | --- | --- |
-| false | false | false | false |
-| false | true | false | true |
-| true | false | false | true |
-| true | true | true | true |
-
-AND is appropriate only because the example policy explicitly requires both essentials and the reserve condition. Explain OR accurately as allowing either or both conditions. Neither operator is morally good or bad.
-
-## Honest learning feedback
-
-Explain terms and show a worked example before assessing demonstrated choices. Give the learner control over the pace, with Back and Next, then guide them toward the next practice action. Explain consequences using the actual quantities or truth values. Teach again must preserve the learner's work while replaying a separate demonstration.
-
-The budget example allocates 500 essentials, 300 reserve, and 200 choice from 1,000 credits; the 200-credit surprise leaves 100 reserve. The tax example builds each layer before comparing 2,500 and 3,000. The logic example holds A true and B false while contrasting AND closed with OR open. These examples are the teaching, not hidden answer feedback.
-
-Completing the experience is not proof of real-world financial competence. Shortfalls invite revision; they do not label the learner irresponsible. No learning-outcome study has been conducted.
+| Scenario | Gross | Coin | Needs floor | Cushion | Surprise | Purchase |
+| --- | --- | --- | --- | --- | --- | --- |
+| First paycheck | $4,000 | $360 | $1,800 (5 coins) | $720 (2 coins) | Car repair $650 | Weekend trip $400 |
+| The raise | $5,000 | $440 | $2,200 | $880 | Dental bill $900 | New laptop $1,100 |
+| Side hustle | $2,500 | $235 | $1,175 | $470 | Cracked phone $300 | Concert tickets $200 |
