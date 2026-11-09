@@ -19,6 +19,23 @@ const ICON_TOUCH = requireAsset('../Icons/touch_app.png') as Texture
 const ICON_CENTER = requireAsset('../Icons/center_focus_strong.png') as Texture
 const ICON_PLAY = requireAsset('../Icons/play_arrow.png') as Texture
 const ICON_CLOSE = requireAsset('../Icons/close_wght500.png') as Texture
+const ICON_TAX = requireAsset('../Icons/account_balance.png') as Texture
+const ICON_SAVE = requireAsset('../Icons/savings.png') as Texture
+const ICON_GATE = requireAsset('../Icons/task_alt.png') as Texture
+
+type TextRole = 'Title1' | 'Headline1' | 'Headline2' | 'Button' | 'Caption'
+const TYPE_SCALE: Record<TextRole, {size: number; weight: number}> = {
+  Title1: {size: 105, weight: 700},
+  Headline1: {size: 54, weight: 700},
+  Headline2: {size: 48, weight: 700},
+  Button: {size: 39, weight: 500},
+  Caption: {size: 38, weight: 500},
+}
+
+function applyTextRole(text: Text, role: TextRole, scale: number): void {
+  text.size = TYPE_SCALE[role].size * scale
+  text.weight = TYPE_SCALE[role].weight
+}
 
 export type IntroMode = 'welcome' | 'placing' | 'rescue' | 'hidden'
 
@@ -27,11 +44,15 @@ export class CashfallIntroUI extends BaseScriptComponent {
   @ui.label('Cashfall / Intro card')
   @ui.separator
   @ui.group_start('Settings')
-  @input @hint('Card width in centimeters') @widget(new SliderWidget(24, 44, 1)) width: number = 38
+  @input @hint('Card width in centimeters') @widget(new SliderWidget(36, 48, 1)) width: number = 44
   @input @hint('Distance in front of the viewer, in centimeters') @widget(new SliderWidget(60, 140, 5)) distance: number = 95
-  @input @hint('Drop below eye line, in centimeters') @widget(new SliderWidget(-10, 30, 1)) drop: number = 6
+  @input @hint('Drop below eye line, in centimeters') @widget(new SliderWidget(-10, 30, 1)) drop: number = 14
   @input @hint('Title copy') title: string = 'CASHFALL'
   @input @hint('Tagline copy') tagline: string = 'See where every dollar goes.'
+  @input @hint('Welcome eyebrow') eyebrow: string = 'YOUR MONEY. MADE VISIBLE.'
+  @input @hint('Welcome description') welcomeDescription: string = 'One paycheck. Three hands-on lessons.'
+  @input @hint('Welcome placement instruction') placementPrompt: string = 'Choose a place for your money machine'
+  @input @hint('Typography scale for the Outfit font') @widget(new SliderWidget(1, 1.6, 0.05)) typeScale: number = 1.35
   @ui.group_end
   @ui.group_start('Theme')
   @input @hint('Card surface') @widget(new ColorWidget()) surface: vec4 = new vec4(0.08, 0.1, 0.26, 1)
@@ -51,6 +72,8 @@ export class CashfallIntroUI extends BaseScriptComponent {
   private sub!: Text
   private hint!: Text
   private plate!: RoundedRectangle
+  private welcomeContent!: SceneObject
+  private supportContent!: SceneObject
   private buttons: {[id: string]: {object: SceneObject; label: Text; icon: Image}} = {}
   private rows: {[id: string]: SceneObject} = {}
   private targetPos: vec3 | null = null
@@ -72,10 +95,12 @@ export class CashfallIntroUI extends BaseScriptComponent {
     const welcome = mode === 'welcome'
     const placing = mode === 'placing'
     const rescue = mode === 'rescue'
+    this.welcomeContent.enabled = welcome
+    this.supportContent.enabled = !welcome
+    this.plate.size = new vec2(this.width, welcome ? 35 : 20)
     this.heading.text = welcome ? this.title : placing ? 'Aim at a table' : 'Machine out of view'
     this.sub.text = welcome ? this.tagline : placing ? 'Point at a flat surface and pinch to place the machine.' : 'Bring it back in front of you, or turn around to find it.'
     this.hint.text = welcome ? 'Taxes  ·  Budget  ·  Logic  ·  One machine' : placing ? 'Looking for a surface…' : ''
-    this.rows.welcome.enabled = welcome
     this.rows.placing.enabled = placing
     this.rows.rescue.enabled = rescue
   }
@@ -87,32 +112,31 @@ export class CashfallIntroUI extends BaseScriptComponent {
   private build(): void {
     this.sceneObject.createComponent('Component.Canvas')
     const W = this.width
-    const H = 18.5
+    const H = 35
     const plateHost = this.obj(this.sceneObject, 'Plate')
     this.plate = this.rect(plateHost, W, H, this.surface, this.cyan, 1.8, 0.18)
     this.plate.gradient = true
     this.plate.setBackgroundGradient(this.gradient(this.tint(this.surface, 1.7), this.tint(this.surface, 0.8)))
 
     const content = this.obj(this.sceneObject, 'Content', new vec3(0, 0, 0.6))
-    const col = this.flexColumn(content, W - 2, H - 1.2, {gap: 0.4, align: FlexAlign.Stretch, justify: FlexJustify.Center})
-    this.heading = this.textRow(col, 84, 700, 4.0, W - 2, 'Heading')
-    this.sub = this.textRow(col, 40, 500, 3.4, W - 3, 'Sub')
+    this.welcomeContent = this.obj(content, 'WelcomeContent')
+    this.buildWelcome(this.welcomeContent, W)
+    this.supportContent = this.obj(content, 'SupportContent')
+    const col = this.flexColumn(this.supportContent, W - 4, 18, {gap: 0.6, align: FlexAlign.Stretch, justify: FlexJustify.Center})
+    this.heading = this.textRow(col, 'Headline1', 4.0, W - 4, 'Heading')
+    this.sub = this.textRow(col, 'Caption', 3.4, W - 4, 'Sub')
     this.sub.textFill.color = this.tint(this.ink, 0.92)
-    this.hint = this.textRow(col, 30, 600, 1.8, W - 3, 'Hint')
+    this.hint = this.textRow(col, 'Caption', 2.2, W - 4, 'Hint')
     this.hint.textFill.color = this.gold
 
-    const rowH = 4.6
-    // One flex slot holds the three alternative button rows stacked at the same spot; only one is
+    const rowH = 6
+    // One flex slot holds the two alternative support rows stacked at the same spot; only one is
     // enabled at a time, so hidden rows never take layout space.
     this.flexChild(col, {w: W - 2, h: rowH}, (slot) => {
-      this.rows.welcome = this.obj(slot, 'WelcomeRow')
-      const welcome = this.flexRow(this.rows.welcome, W - 2, rowH, {gap: 0.8, justify: FlexJustify.Center, align: FlexAlign.Center})
       const bw = (W - 2 - 0.8) / 2
-      this.button(welcome, 'surface', 'Place on a table', ICON_TOUCH, bw, rowH, true, () => this.onPlaceOnSurface.invoke())
-      this.button(welcome, 'front', 'Place in front of me', ICON_PLAY, bw, rowH, false, () => this.onPlaceInFront.invoke())
       this.rows.placing = this.obj(slot, 'PlacingRow')
       const placing = this.flexRow(this.rows.placing, W - 2, rowH, {gap: 0.8, justify: FlexJustify.Center, align: FlexAlign.Center})
-      this.button(placing, 'frontAlt', 'Place in front of me', ICON_PLAY, bw, rowH, true, () => this.onPlaceInFront.invoke())
+      this.button(placing, 'frontAlt', 'In front of me', ICON_PLAY, bw, rowH, true, () => this.onPlaceInFront.invoke())
       this.button(placing, 'cancel', 'Back', ICON_CLOSE, bw * 0.7, rowH, false, () => this.onCancelPlacing.invoke())
       this.rows.rescue = this.obj(slot, 'RescueRow')
       const rescue = this.flexRow(this.rows.rescue, W - 2, rowH, {gap: 0.8, justify: FlexJustify.Center, align: FlexAlign.Center})
@@ -120,6 +144,60 @@ export class CashfallIntroUI extends BaseScriptComponent {
     })
     this.ready = true
     this.setMode(this.mode)
+  }
+
+  private buildWelcome(parent: SceneObject, W: number): void {
+    const inner = W - 4
+    const col = this.flexColumn(parent, inner, 32, {gap: 0.6, justify: FlexJustify.Center, align: FlexAlign.Center})
+    const eyebrow = this.textRow(col, 'Caption', 1.8, inner, 'Eyebrow')
+    eyebrow.text = this.eyebrow
+    eyebrow.textFill.color = this.gold
+    const title = this.textRow(col, 'Title1', 4.8, inner, 'WelcomeTitle')
+    title.text = this.title
+    const tagline = this.textRow(col, 'Headline2', 2.6, inner, 'WelcomeTagline')
+    tagline.text = this.tagline
+    const description = this.textRow(col, 'Caption', 2.2, inner, 'WelcomeDescription')
+    description.text = this.welcomeDescription
+    description.textFill.color = this.tint(this.ink, 0.86)
+
+    this.flexChild(col, {w: inner, h: 8.1}, (slot) => {
+      const row = this.flexRow(slot, inner, 8.1, {gap: 0.8, justify: FlexJustify.Center, align: FlexAlign.Center})
+      const tileWidth = (inner - 1.6) / 3
+      this.chapterTile(row, '01  TAXES', 'Watch it fall', ICON_TAX, tileWidth, this.gold)
+      this.chapterTile(row, '02  BUDGET', 'Make your split', ICON_SAVE, tileWidth, this.cyan)
+      this.chapterTile(row, '03  LOGIC', 'Test a choice', ICON_GATE, tileWidth, new vec4(0.6, 1, 0.75, 1))
+    })
+
+    const prompt = this.textRow(col, 'Caption', 2.2, inner, 'PlacementPrompt')
+    prompt.text = this.placementPrompt
+    this.flexChild(col, {w: inner, h: 6}, (slot) => {
+      const row = this.flexRow(slot, inner, 6, {gap: 1, justify: FlexJustify.Center, align: FlexAlign.Center})
+      const bw = (inner - 1) / 2
+      this.button(row, 'surface', 'On a table', ICON_TOUCH, bw, 6, true, () => this.onPlaceOnSurface.invoke())
+      this.button(row, 'front', 'In front of me', ICON_PLAY, bw, 6, false, () => this.onPlaceInFront.invoke())
+    })
+  }
+
+  private chapterTile(parent: SceneObject, title: string, subtitle: string, icon: Texture, width: number, accent: vec4): void {
+    this.flexChild(parent, {w: width, h: 8.1}, (tile) => {
+      this.rect(this.obj(tile, 'TilePlate'), width, 8.1, this.tint(this.surface, 1.15), this.tint(accent, 0.65), 1.1, 0.07)
+      const face = this.obj(tile, 'TileContent', new vec3(0, 0, 0.6))
+      const col = this.flexColumn(face, width - 0.6, 7.3, {gap: 0.3, justify: FlexJustify.Center, align: FlexAlign.Center})
+      this.flexChild(col, {w: 3, h: 3}, (holder) => {
+        const iconObject = this.obj(holder, 'ChapterIcon')
+        const image = iconObject.createComponent('Component.Image') as Image
+        image.mainMaterial = IMAGE_MATERIAL_ASSET.clone()
+        image.mainPass.baseTex = icon
+        image.mainPass.baseColor = accent
+        image.stretchMode = StretchMode.Stretch
+        iconObject.getTransform().setLocalScale(new vec3(3, 3, 1))
+      })
+      const label = this.textRow(col, 'Button', 1.8, width - 0.6, 'ChapterName')
+      label.text = title
+      label.textFill.color = accent
+      const detail = this.textRow(col, 'Caption', 1.7, width - 0.6, 'ChapterPromise')
+      detail.text = subtitle
+    })
   }
 
   private update(): void {
@@ -170,7 +248,7 @@ export class CashfallIntroUI extends BaseScriptComponent {
       img.stretchMode = StretchMode.Stretch
       iconObject.getTransform().setLocalScale(new vec3(1.9, 1.9, 1))
       const labelObj = this.obj(child, 'Label', new vec3(0, 0, 0.12))
-      const t = this.makeText(labelObj, 34, 600, w - 3.4, h - 0.8)
+      const t = this.makeText(labelObj, 'Button', w - 3.4, h - 0.8)
       t.layoutRect = Rect.create(-w / 2 + 3.0, w / 2 - 0.5, -h / 2 + 0.3, h / 2 - 0.3)
       t.text = label
       b.onTriggerUp.add(() => fn())
@@ -235,13 +313,12 @@ export class CashfallIntroUI extends BaseScriptComponent {
     }
   }
 
-  private makeText(parent: SceneObject, size: number, weight: number, w: number, h: number): Text {
+  private makeText(parent: SceneObject, role: TextRole, w: number, h: number): Text {
     const t = parent.createComponent('Component.Text') as Text
     t.font = FONT
     t.depthTest = true
     t.textFill.color = this.ink
-    t.size = size
-    t.weight = weight
+    applyTextRole(t, role, this.typeScale)
     t.horizontalAlignment = HorizontalAlignment.Center
     t.verticalAlignment = VerticalAlignment.Center
     t.horizontalOverflow = HorizontalOverflow.Wrap
@@ -250,11 +327,11 @@ export class CashfallIntroUI extends BaseScriptComponent {
     return t
   }
 
-  private textRow(parent: SceneObject, size: number, weight: number, h: number, w: number, name: string): Text {
+  private textRow(parent: SceneObject, role: TextRole, h: number, w: number, name: string): Text {
     let result!: Text
     this.flexChild(parent, {w, h}, (child) => {
       child.name = name
-      result = this.makeText(child, size, weight, w, h)
+      result = this.makeText(child, role, w, h)
     })
     return result
   }

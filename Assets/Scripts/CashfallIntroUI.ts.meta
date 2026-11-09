@@ -31,11 +31,15 @@
     cyan: false
     distance: false
     drop: false
+    eyebrow: false
     gold: false
     ink: false
+    placementPrompt: false
     surface: false
     tagline: false
     title: false
+    typeScale: false
+    welcomeDescription: false
     width: false
   ScriptTypesHidden:
     {}
@@ -51,6 +55,10 @@
       drop: !<float> 6.000000
       title: CASHFALL
       tagline: See where every dollar goes.
+      eyebrow: YOUR MONEY. MADE VISIBLE.
+      welcomeDescription: One paycheck. Three hands-on lessons.
+      placementPrompt: Choose a place for your money machine
+      typeScale: 1.350000
       surface: !<Vec4> {x: 0.080000, y: 0.100000, z: 0.260000, w: 1.000000}
       ink: !<Vec4> {x: 0.970000, y: 0.980000, z: 1.000000, w: 1.000000}
       cyan: !<Vec4> {x: 0.360000, y: 0.860000, z: 1.000000, w: 1.000000}
@@ -62,11 +70,15 @@
     - '// @ui {"widget":"label", "label":"Cashfall / Intro card"}'
     - '// @ui {"widget":"separator"}'
     - '// @ui {"widget":"group_start", "label":"Settings"}'
-    - '// @input float width = 38 {"hint":"Card width in centimeters", "widget":"slider", "min":24, "max":44, "step":1}'
+    - '// @input float width = 44 {"hint":"Card width in centimeters", "widget":"slider", "min":36, "max":48, "step":1}'
     - '// @input float distance = 95 {"hint":"Distance in front of the viewer, in centimeters", "widget":"slider", "min":60, "max":140, "step":5}'
-    - '// @input float drop = 6 {"hint":"Drop below eye line, in centimeters", "widget":"slider", "min":-10, "max":30, "step":1}'
+    - '// @input float drop = 14 {"hint":"Drop below eye line, in centimeters", "widget":"slider", "min":-10, "max":30, "step":1}'
     - '// @input string title = "CASHFALL" {"hint":"Title copy"}'
     - '// @input string tagline = "See where every dollar goes." {"hint":"Tagline copy"}'
+    - '// @input string eyebrow = "YOUR MONEY. MADE VISIBLE." {"hint":"Welcome eyebrow"}'
+    - '// @input string welcomeDescription = "One paycheck. Three hands-on lessons." {"hint":"Welcome description"}'
+    - '// @input string placementPrompt = "Choose a place for your money machine" {"hint":"Welcome placement instruction"}'
+    - '// @input float typeScale = 1.35 {"hint":"Typography scale for the Outfit font", "widget":"slider", "min":1, "max":1.6, "step":0.05}'
     - '// @ui {"widget":"group_end"}'
     - '// @ui {"widget":"group_start", "label":"Theme"}'
     - '// @input vec4 surface = {0.08,0.1,0.26,1} {"hint":"Card surface", "widget":"color"}'

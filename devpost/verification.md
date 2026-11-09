@@ -1,5 +1,16 @@
 # Cashfall verification
 
+## Welcome redesign — November 9, 2026
+
+- Enlarged the welcome panel to 44 × 35 cm at a 95 cm distance and 14 cm below eye level, with larger typography, three illustrated chapter cards, and 6 cm-high placement buttons. Placement and recovery keep a compact support panel.
+- Native TypeScript compilation passed. The updated welcome and surface-placement screens were visually inspected in SPECS27 Interactive Preview.
+- SIK pinches at measured button positions verified **On a table → Aim at a table → Back → welcome**, followed by **In front of me → tax_intro**. The final runtime snapshot showed gross 4000, tax 400, and take-home 3600.
+- Object-ID targeting initially went stale after a save; name-based targeting reported a collider obstruction. Coordinate-based SIK interactions then produced the expected screen transitions. This is Preview interaction evidence, not a hardware hand-tracking test.
+- No Cashfall script errors appeared in the interaction log window. Lens Studio logged network authentication warnings. A final refresh/log call timed out waiting for reset; a subsequent native capture confirmed the redesigned welcome was rendering, and the project was saved.
+- Current welcome capture: `screenshots/cashfall/01-welcome-redesign.jpg`. The original `01-welcome.png` is retained as a historical capture.
+
+## Original build — November 8, 2026
+
 Verified 2026-11-08 in Lens Studio 5.24.1 (Public), SPECS27 Interactive Preview, using the Lens Studio MCP tooling (AiPreviewAgent pinches and drags, runtime scene queries, log capture). Everything below was driven through real SIK controls: UIKit buttons on the console, jar `Interactable`s, and the grabbable coin's `InteractableManipulation`. No private handlers were called.
 
 ## Runtime health

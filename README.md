@@ -2,11 +2,11 @@
 
 A Specs AR lesson in money. You place a small money machine on your table, your paycheck falls through tax steps, you split what is left into jars with your hands, and a purchase has to pass a logic gate before it goes through. Three chapters, one machine, one month. Built for a broad audience with no prior finance or logic background.
 
-![Chapter 1, the Falls: a paycheck drops through three tax steps](devpost/screenshots/cashfall/02-falls-step1.png)
+![Cashfall welcome: three illustrated lessons and clear placement choices](devpost/screenshots/cashfall/01-welcome-redesign.jpg)
 
 ## Run it
 
-Open `Learn_AR_with_Specs.esproj` in Lens Studio 5.24.1 (or newer 5.2x), let assets import, and use the SPECS27 Interactive Preview. On the welcome card choose **Place on a table** (aim at a flat surface and pinch) or **Place in front of me**. Mouse clicks in the Preview stand in for pinches. The machine stays world-locked where you put it; the **bring it here** dock button re-centres it without losing progress.
+Open `Learn_AR_with_Specs.esproj` in Lens Studio 5.24.1 (or newer 5.2x), let assets import, and use the SPECS27 Interactive Preview. The welcome card introduces Taxes, Budget, and Logic with illustrated lesson cards. Choose **On a table** (aim at a flat surface and pinch) or **In front of me**. Mouse clicks in the Preview stand in for pinches. The machine stays world-locked where you put it; the **bring it here** dock button re-centres it without losing progress.
 
 ## The experience
 
