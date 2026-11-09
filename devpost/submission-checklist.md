@@ -5,7 +5,7 @@ Deadline: **November 9, 2026, 5:00 p.m. America/New_York (EST)**. This file reco
 ## Required deliverables
 
 - [x] Working Specs Lens built through CLAD and the native Lens Studio MCP tools; placement, three chapters and the summary were driven end to end in Preview (see `verification.md`).
-- [x] Design brief (`design-brief.md`), learning content (`learning-sources.md`), asset provenance and licenses (`asset-provenance.md`, `licenses/`).
+- [x] Design brief (`design-brief.md`, in the plan-lens skill pack's template layout), learning content (`learning-sources.md`), asset provenance and licenses (`asset-provenance.md`, `licenses/`).
 - [x] Screenshots of every chapter in `screenshots/cashfall/`.
 - [x] Devpost draft (`submission-draft.md`) covering the user, problem, functionality, spatial design, development lessons and CLAD usage; claims match Preview evidence and disclose that no hardware test was performed.
 - [x] Public repository content prepared on 2026-11-08: the publication checkout mirrors the saved Lens Studio project (`Assets/`, `Packages/`, `devpost/`, `tempAssetGen/`, the `.esproj` and TypeScript manifests, README, `.gitignore`) with the Remote Service Gateway credential fields blanked in the public scene and every Money Garden file removed; committed on `main`. A zip of the same content sits beside the checkout for a direct upload if needed.
